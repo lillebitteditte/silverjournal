@@ -1,0 +1,32 @@
+name: Deploy to WordPress Server
+
+on:
+  push:
+    branches:
+      - main  # Kun push til main udløser dette workflow
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Tjek koden ud fra GitHub repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Installér PHP
+   
+    # - name: Setup PHP
+    #   uses: shivammathur/setup-php@v2
+    #   with:
+    #     php-version: '8.0'
+
+    # Deploy via FTP
+    - name: Deploy via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ftp.simply.com
+        username: ${{ secrets.thesilverjourn.com }}
+        password: ${{ secrets.AypeakrF2gt4d9Ec3fnm }}
+        local-dir: ./wp-content/themes/silverjournal
+        server-dir: /public_html/wp-content/themes/silverjournal
