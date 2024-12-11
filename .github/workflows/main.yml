@@ -26,7 +26,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: ftp.simply.com
-        username: ${{ secrets.thesilverjourn.com }}
-        password: ${{ secrets.AypeakrF2gt4d9Ec3fnm }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
         server-dir: /public_html/wp-content/themes/silverjournal
