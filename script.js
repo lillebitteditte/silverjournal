@@ -1,4 +1,4 @@
-// MENU
+// ----- MENU -------
 
 function toggleMenu() {
     const menu = document.getElementById("menu-open");
