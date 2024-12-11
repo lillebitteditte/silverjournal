@@ -12,7 +12,7 @@ jobs:
     steps:
     # Tjek koden ud fra GitHub repository
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     # Installér PHP
    
@@ -23,7 +23,7 @@ jobs:
 
     # Deploy via FTP
     - name: Deploy via SFTP
-      uses: appleboy/scp-action@0.1.4
+      uses: appleboy/scp-action@0.1.7
       with:
         server: ftp.simply.com
         username: ${{ secrets.FTP_USERNAME }}
