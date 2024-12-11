@@ -23,7 +23,7 @@ jobs:
 
     # Deploy via FTP
     - name: Deploy via SFTP
-      uses: appleboy/scp-action@0.1.5
+      uses: appleboy/scp-action@0.1.6
       with:
         server: ftp.simply.com
         username: ${{ secrets.FTP_USERNAME }}
