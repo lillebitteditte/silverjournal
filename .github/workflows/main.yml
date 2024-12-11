@@ -3,7 +3,7 @@ name: Deploy to WordPress Server
 on:
   push:
     branches:
-      - master  # Kun push til main udløser dette workflow
+      - master  # Kun push til master udløser dette workflow
 
 jobs:
   deploy:
