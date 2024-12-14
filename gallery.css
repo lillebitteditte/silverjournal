@@ -1,0 +1,91 @@
+
+/* GRID */
+
+.grid-container {
+    max-width: 1224px;
+    width: 100%;
+    margin: auto;
+    
+  }
+  
+  .grid-gallery {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 1024px) {
+    .grid-gallery {
+      flex-direction: column;
+    }
+  }
+  
+  #plus-button-grid {
+    width: 100%; /* Makes it take up full width of the column */
+    object-fit: contain;
+    overflow: visible; /* Ensures no part is clipped */
+  }
+  
+  #plus-button-grid img {
+    width: 100%; /* Ensures the image scales correctly */
+    object-fit: contain; /* Ensures the entire image is visible */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+  }
+  
+  #plus-button-grid:hover img {
+    transform: scale(1.01); /* Zoom effect on hover */
+    cursor: pointer;
+  }
+  
+  
+  /* MODAL FOR GRID */
+  
+  .modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal.hide {
+    display: none;
+  }
+  
+  .modal-image-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  .modal-content {
+    width: 100%;
+    height: auto;
+  }
+  
+  #modal-close {
+    color: #f1f1f1;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }

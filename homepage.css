@@ -1,0 +1,185 @@
+/* KARRUSEL */
+
+.carousel_wrapper {
+    position: relative;
+    max-width: 1224px;
+    margin: 0 auto 40px;
+    overflow: hidden;
+  }
+  
+  .carousel_container {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    position: relative;
+    width: 100%; /* Wider to accommodate positioning */
+    transform: translateX(-75%); /* Shift to center the current image */
+  }
+  
+  .carousel img {
+    width: 75%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  /* Current image positioned more to the left */
+  .carousel img:nth-child(2) {
+    transform: translateX(0%); /* Shift current image to the left */
+  }
+  
+  /* Next image previewed to the right */
+  .carousel img:nth-child(3) {
+    transform: translateX(0%); /* Shift next image to the right */
+  }
+  
+  /* KARRUSEL KOMPONENTER */
+  
+  .carousel-info {
+    color: var(--white);
+    font-family: Lexend Exa, sans-serif;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .counter {
+    font-size: 16px;
+    margin-left: 30px;
+    font-weight: 300;
+    margin-right: 120px;
+  }
+  
+  .image-info {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 200;
+    margin-right: 120px;
+  }
+  
+  .arrow-right,
+  .arrow-left {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    z-index: 10;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .arrow-left {
+    left: 20px;
+  }
+  
+  .arrow-right {
+    right: 20px;
+  }
+  
+  .arrow-right:hover,
+  .arrow-left:hover {
+    transform: translateY(-50%) scale(1.2);
+    cursor: pointer;
+  }
+  
+  .plus-button {
+    font-family: Lexend Exa, sans-serif;
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+  }
+  
+  .plus-button:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+  
+  
+  /* CAROUSEL MODAL */
+  
+  /* Disable scrolling when modal is open */
+  body.no-scroll {
+    overflow: hidden;
+  }
+  
+  /* Adjust modal layout for better fit */
+  #carousel-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  #carousel-modal .modal-content {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    max-height: 100%;
+    /* margin: auto; */
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(23, 23, 23, 0.7);
+  }
+  
+  #carousel-modal img {
+    flex: 1;
+    max-width: 70%;
+    max-height: 90%;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  
+  #carousel-modal .modal-text-container {
+    flex: 2;
+    color: var(--white);
+    font-family: "Lexend Exa", sans-serif;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #carousel-modal h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  #carousel-modal p {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 200;
+  }
+  
+  #carousel-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  #carousel-modal-close:hover {
+    color: #ff7f50;
+  }
+  
+  

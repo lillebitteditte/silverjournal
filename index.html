@@ -15,6 +15,8 @@
     <title>The Silver Journal</title>
 
     <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/homepage.css" />
+    <link rel="stylesheet" href="/gallery.css" />
   </head>
   <body>
     <header class="header">
@@ -58,21 +60,21 @@
 
         <div id="menu-open" class="menu-open">
           <a class="nav-item" href="/about.html">About</a>
+          <a class="nav-item" href="/gallery.html">Gallery</a>
           <a class="nav-item" href="#">Shop</a>
-          <a class="nav-item" href="#">Test</a>
-          <a class="nav-item" href="#">Test 5</a>
+          <a class="nav-item" href="#">Contact</a>
         </div>
       </div>
 
       <div class="logo">
-          <a href="/">
-            <img
-              src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/Logo.png?v=1733733444313"
-              alt="Logo"
-              class="logo-img"
-            />
-          </a>
-        </div>
+        <a href="/">
+          <img
+            src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/Logo.png?v=1733733444313"
+            alt="Logo"
+            class="logo-img"
+          />
+        </a>
+      </div>
     </header>
 
     <svg
@@ -116,66 +118,44 @@
       </button>
     </div>
 
+    <!--- MODAL FOR CAROUSEL IMAGES --->
+
+    <div id="carousel-modal" class="hide">
+    <button id="carousel-modal-close">&times;</button>
+    <div class="modal-content">
+        <img id="carousel-modal-image" alt="Modal Image" />
+        <div class="modal-text-container">
+            <h2 id="carousel-modal-title"></h2>
+            <p id="carousel-modal-info"></p>
+        </div>
+    </div>
+</div>
+
+
     <div class="grid-container">
       <div class="grid-gallery">
         <div class="column">
-          <div class="photo" loading="lazy">
-            <img
-              src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/DSC05500.jpg?v=1733127950844"
-              alt=""
-            />
-          </div>
-
-          <div class="photo" loading="lazy">
-            <img
-              src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/DSC05502-2.JPEG?v=1733127964529"
-              alt=""
-            />
-          </div>
-
-          <div class="photo" loading="lazy">
-            <img
-              src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/DSC05504.jpg?v=1733127971633"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="photo" loading="lazy">
-            <img
-              src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/DSC05508-2.JPEG?v=1733128050158"
-              alt=""
-            />
-          </div>
-
-          <div class="photo" loading="lazy">
-            <img
-              src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/DSC05524.JPEG?v=1733128075758"
-              alt=""
-            />
-          </div>
-
-          <div class="photo" loading="lazy">
-            <img
-              src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/DSC05585.jpg?v=1733128070919"
-              alt=""
-            />
-          </div>
-
-          <div class="photo" id="plus-button-grid">
-            <a href="/about.html">
-              <img
-                src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/knap.png?v=1733129797384"
-                alt=""
-              />
-            </a>
+          <div class="grid-container">
+            <div id="dynamic-grid" class="grid-gallery"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <footer class="footer"></footer>
+    <div id="modal-container" class="modal hide">
+      <div class="modal-image-container">
+        <span id="modal-close">&times;</span>
+        <img id="modal-image" class="modal-content" />
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-info">
+        <a class="footer-item" href="#">Instagram</a>
+        <a class="footer-item" href="#">silverjournal@mail.com</a>
+      </div>
+    </footer>
     <script src="/global.js" defer></script>
+    <script src="/gallery.js"></script>
   </body>
 </html>
