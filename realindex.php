@@ -1,12 +1,11 @@
 
 <?php
-/**
- * Template Name: Silver Journal
- * Template Post Type: page
- */
-
-get_header(); // Indlæser header.php
+/*
+Template Name: homepage-silverjournal
+*/
 ?>
+
+<?php get_header(); ?>
 
 
 <main> 

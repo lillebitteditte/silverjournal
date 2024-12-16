@@ -1,6 +1,10 @@
 <?php
-//  PHP-fil
+/*
+Template Name: coming-silverjournal
+*/
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
