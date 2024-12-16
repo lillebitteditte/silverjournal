@@ -18,12 +18,12 @@ function silverjournal_enqueue_scripts() {
         wp_enqueue_script('homepage-js', get_template_directory_uri() . '/js/homepage.js', [], '1.0.0', true);
     }
 
-    if (is_page_template('templates/gallery.php')) {
+    if (is_page_template('gallery.php')) {
         wp_enqueue_style('gallery-css', get_template_directory_uri() . '/css/gallery.css', [], '1.0.0', 'all');
         wp_enqueue_script('gallery-js', get_template_directory_uri() . '/js/gallery.js', [], '1.0.0', true);
     }
 
-    if (is_page_template('templates/about.php')) {
+    if (is_page_template('about.php')) {
         wp_enqueue_style('about-css', get_template_directory_uri() . '/css/about.css', [], '1.0.0', 'all');
         wp_enqueue_script('about-js', get_template_directory_uri() . '/js/about.js', [], '1.0.0', true);
     }
