@@ -29,7 +29,7 @@ function silverjournal_enqueue_scripts() {
     }
 }
 
-add_action('wp_enqueue_scripts', 'silverjournal_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'silverjournal_enqueue_scripts', 20);
 
 // Fjern uønskede body-classes
 function remove_body_classes($classes) {

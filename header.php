@@ -6,7 +6,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="icon" href="https://glitch.com/favicon.ico" />
   <title><?php wp_title(); ?></title>
   <?php wp_head(); ?>
 </head>
