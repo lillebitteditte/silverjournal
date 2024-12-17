@@ -21,7 +21,7 @@ Template Name: gallery-silverjournal
         <div class="grid-gallery">
             <div class="column">
                 <div class="grid-container">
-                    <div id="dynamic-grid" class="grid-gallery"></div>
+                    <div id="gallery-grid" class="grid-gallery"></div>
                 </div>
             </div>
         </div>

@@ -22,10 +22,10 @@
       </div>
     </div>
     <div id="menu-open" class="menu-open">
-      <a class="nav-item" href="https://thesilverjournal.dk/about">About</a>
-      <a class="nav-item" href="https://thesilverjournal.dk/gallery">Gallery</a>
-      <a class="nav-item" href="https://thesilverjournal.dk/shop">Shop</a>
-      <a class="nav-item" href="https://thesilverjournal.dk/contact">Contact</a>
+      <a class="nav-item" href="https://thesilverjournal.com/about">About</a>
+      <a class="nav-item" href="https://thesilverjournal.com/gallery">Gallery</a>
+      <a class="nav-item" href="https://thesilverjournal.com/shop">Shop</a>
+      <a class="nav-item" href="https://thesilverjournal.com/contact">Contact</a>
     </div>
   </div>
   <div class="logo">
