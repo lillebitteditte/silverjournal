@@ -15,6 +15,7 @@ function silverjournal_enqueue_scripts() {
     // Side-specifik CSS og JS
     if (is_front_page()) {
         wp_enqueue_style('homepage-css', get_template_directory_uri() . '/css/homepage.css', [], '1.0.0', 'all');
+        wp_enqueue_style('gallery-css', get_template_directory_uri() . '/css/gallery.css', [], '1.0.0', 'all');
         wp_enqueue_script('homepage-js', get_template_directory_uri() . '/js/gallery.js', [], '1.0.0', true);
     }
 
