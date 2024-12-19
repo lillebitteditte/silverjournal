@@ -78,7 +78,7 @@ function initializeGallery(containerId, galleryData) {
     "https://cdn.glitch.global/d7f396b7-7572-4259-9986-224a88641815/DSC05501-2.JPEG?v=1734080564829",
     {
       type: "link",
-      url: "https://thesilverjournal.dk/gallery",
+      url: "https://thesilverjournal.com/gallery",
       image: "https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/knap.png?v=1733129797384",
     },
   ];
