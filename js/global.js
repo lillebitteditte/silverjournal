@@ -25,23 +25,23 @@ function toggleMenu() {
     {
       title: "1",
       info: "munich",
-      description: "Description of Munich picture",
+      description: "The English Garden",
       image:
-        "https://cdn.glitch.global/8de00284-bf3e-4fe6-a6c9-eed9aed60a98/DSC05500.jpg?v=1732631757487",
+        "https://thesilverjournal.com/wp-content/uploads/2024/12/The-English-Garden-Munich-2021_1-scaled.jpg",
     },
     {
       title: "2",
       info: "cph",
-      description: "Description of CPH picture",
+      description: "Backyard vibes",
       image:
-        "https://cdn.glitch.global/8de00284-bf3e-4fe6-a6c9-eed9aed60a98/DSC05504.jpg?v=1732631747874",
+        "https://thesilverjournal.com/wp-content/uploads/2024/12/Munich_1-scaled.jpg",
     },
     {
       title: "3",
-      info: "bornholm",
-      description: "Description of Bornholm picture",
+      info: "munich",
+      description: "Eisbach surfer",
       image:
-        "https://cdn.glitch.global/8de00284-bf3e-4fe6-a6c9-eed9aed60a98/DSC05502-2.JPEG?v=1732631752668",
+        "https://thesilverjournal.com/wp-content/uploads/2024/12/Eisbach-surfer_Munich_1-scaled.jpg",
     },
   ];
   let currentIndex = 0;
