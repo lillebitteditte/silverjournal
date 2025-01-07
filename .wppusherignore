@@ -1,0 +1,5 @@
+tests/
+package.
+tests/node_modules/
+dist/
+
