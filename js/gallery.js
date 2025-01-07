@@ -78,17 +78,16 @@ function initializeGallery(containerId, galleryData) {
     // VERTICAL
     "https://thesilverjournal.com/wp-content/uploads/2024/12/Frederiksberg_1-scaled.jpg",
 
+     // VERTICAL
+
+     "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg"
+
     // HORIZONTAL
     "https://thesilverjournal.com/wp-content/uploads/2024/12/Covid-in-Munich_1-scaled.jpg",
 
     // HORIZONTAL
 
     "https://thesilverjournal.com/wp-content/uploads/2024/12/Early-morning-ferry-Kalundborg_1-scaled.jpg",
-
-    // VERTICAL
-
-    "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg",
-
 
 
     {
@@ -114,13 +113,14 @@ function initializeGallery(containerId, galleryData) {
 
  "https://thesilverjournal.com/wp-content/uploads/2024/12/Early-morning-ferry-Kalundborg_1-scaled.jpg",
 
- // VERTICAL
-
- "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg",
 
     // HORIZONTAL HORSE PIC
     
     "https://thesilverjournal.com/wp-content/uploads/2024/12/img026_1-scaled.jpg",
+
+     // VERTICAL
+
+ "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg",
 
     // HORIZONTAL
     "https://thesilverjournal.com/wp-content/uploads/2024/12/Hellerup_1-1-scaled.jpg",
