@@ -80,7 +80,7 @@ function initializeGallery(containerId, galleryData) {
 
      // VERTICAL
 
-     "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg"
+     "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg",
 
     // HORIZONTAL
     "https://thesilverjournal.com/wp-content/uploads/2024/12/Covid-in-Munich_1-scaled.jpg",
