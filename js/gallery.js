@@ -1,4 +1,4 @@
-// Funktion til at initialisere et galleri
+
 function initializeGallery(containerId, galleryData) {
     const grid = document.getElementById(containerId);
     if (!grid) return;
@@ -10,7 +10,7 @@ function initializeGallery(containerId, galleryData) {
     const columns = [[], [], []];
     let linkItem = null;
   
-    // Separate link item (e.g., "plus button")
+    // SEPARATE THE PLUS BUTTON
     galleryData.forEach((item) => {
       if (item.type === "link") {
         linkItem = item;
@@ -18,7 +18,7 @@ function initializeGallery(containerId, galleryData) {
       }
     });
   
-    // Organize images into columns
+    // IMAGES IN COLUMN
     galleryData.forEach((item, index) => {
       if (typeof item === "string") {
         const columnIndex = index % 3;
@@ -29,7 +29,7 @@ function initializeGallery(containerId, galleryData) {
       }
     });
   
-    // Add link item to the last column
+    // PLUS BUTTON AS LAST IMAGE
     if (linkItem) {
       const linkHtml = `<div class="photo" id="plus-button-grid">
                           <a href="${linkItem.url}">
@@ -39,7 +39,7 @@ function initializeGallery(containerId, galleryData) {
       columns[2].push(linkHtml);
     }
   
-    // Render columns
+    // RENDER COLUMNS
     columns.forEach((column) => {
       const div = document.createElement("div");
       div.className = "column";
@@ -47,7 +47,7 @@ function initializeGallery(containerId, galleryData) {
       grid.appendChild(div);
     });
   
-    // Add modal functionality
+    // MODAL FUNCTION
     grid.addEventListener("click", (event) => {
       const photoElement = event.target.closest(".photo");
       if (photoElement && !photoElement.closest("#plus-button-grid")) {
@@ -57,7 +57,7 @@ function initializeGallery(containerId, galleryData) {
       }
     });
   
-    // Close modal
+    // CLOSE MODAL
     modalClose.addEventListener("click", () => {
       modalContainer.classList.add("hide");
     });
@@ -132,7 +132,8 @@ function initializeGallery(containerId, galleryData) {
 
   ];
   
-  // Automatisk initialisering baseret på hvilken side der er aktiv
+  // AUTOMATIC GRID FROM WHICH PAGE
+
   document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById("dynamic-grid")) {
       // Forside

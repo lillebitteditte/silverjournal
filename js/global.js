@@ -8,7 +8,7 @@ function toggleMenu() {
     burgerWrapper.classList.toggle("active");
   }
   
-  // Hide menu when a menu item is clicked
+  // Hide menu when item is clicked
   document.querySelectorAll(".nav-item").forEach((item) => {
     item.addEventListener("click", () => {
       const menu = document.getElementById("menu-open");
@@ -58,7 +58,7 @@ function toggleMenu() {
   const carouselModalInfo = document.getElementById("carousel-modal-info");
   const carouselModalClose = document.getElementById("carousel-modal-close");
   
-  // Show the carousel modal
+  // Show carousel modal
   function showCarouselModal(picture) {
       carouselModalImage.src = picture.image;
       carouselModalTitle.textContent = picture.info;
@@ -68,7 +68,7 @@ function toggleMenu() {
       document.body.classList.add("no-scroll");
   }
   
-  // Hide the carousel modal
+  // Hide carousel modal
   carouselModalClose.addEventListener("click", () => {
       carouselModal.style.display = "none";
       document.body.classList.remove("no-scroll");
@@ -76,7 +76,7 @@ function toggleMenu() {
   
   // Clear existing images and create new ones
   function populateCarousel() {
-      carouselContainer.innerHTML = ''; // Clear existing images
+      carouselContainer.innerHTML = ''; 
       heroPictures.forEach((picture) => {
           const imgElement = document.createElement("img");
           imgElement.src = picture.image;
@@ -88,7 +88,7 @@ function toggleMenu() {
   
   // Update carousel and info display
   function updateCarousel() {
-      // Update carousel position
+      // Update position of carousell
       carouselContainer.style.transform = `translateX(${-currentIndex * 75}%)`;
   
       // Update info and counter
@@ -101,12 +101,12 @@ function toggleMenu() {
           </div>
       `;
   
-      // Add event listener for the plus button
+      // Event listener for the plus button
       const plusButton = infoContainer.querySelector(".plus-button");
       plusButton.addEventListener("click", () => showCarouselModal(currentPicture));
   }
   
-  // Ensure the event listeners are added after the DOM is fully loaded
+  // Event listeners are added after the DOM isloaded
   document.addEventListener('DOMContentLoaded', () => {
       const arrowLeft = document.querySelector(".arrow-left");
       const arrowRight = document.querySelector(".arrow-right");
@@ -123,7 +123,7 @@ function toggleMenu() {
           updateCarousel();
       });
   
-      // Initial population and display
+      
       populateCarousel();
       updateCarousel();
   });
