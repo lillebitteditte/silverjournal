@@ -20,6 +20,8 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 5px 5.7%;
   background-color: var(--blackbackground);
@@ -44,8 +46,8 @@ header {
  margin-left: 5.6%;
  margin-bottom: 20px;
  width: 0; 
- transition: width 1.5s ease-in-out;
  animation: drawLine 1.5s forwards;
+ animation-delay: 1s;
 }
 
 .arrow-right {
@@ -65,13 +67,6 @@ header {
    opacity: 1; 
  }
 }
-
-.line-wrapper {
-  margin-left: 5.6%;
-  margin-bottom: 20px;
-}
-
-
 
 /* MENU ELEMENTER */
 
@@ -162,12 +157,25 @@ header {
 
 /* FOOTER */
 
+.footer
+{
+  position: fixed;
+  width: 100%;
+   bottom: 0;
+   background-color: var(--blackbackground) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .footer-info {
+   
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .footer-item {
@@ -175,6 +183,12 @@ header {
   font-family: Lexend Exa, sans-serif;
   text-decoration: none;
   font-size: 12px;
+}
+
+.footer-item:hover {
+  color: var(--pink);
+  scale: 1.01;
+  cursor: pointer;
 }
 
 /* ------------ MEDIA QUERIES ----------- */

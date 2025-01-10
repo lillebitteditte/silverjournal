@@ -1,63 +1,126 @@
+
+#top-section {
+  position: relative;
+}
+
+#bottom-section {
+  position: relative;
+}
+
+.top-element,
+.bottom-element {
+  scroll-snap-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+
 .top-element {
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 20px 18px 20px 20px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px 18px 20px 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+.top-image,
+.bottom-image {
+  height: 600px;
+  display: flex;
+  object-fit: cover;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top-image {
+  margin-left: 4.3%;
+}
+
+.bottom-image {
+  width: 50%;
+  height: auto;
+}
+
+.top-text,
+.bottom-text {
+  width: 460px;
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: color 0.5s ease;
+}
+
+.top-text {
+  color: var(--white);
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 4%;
+  text-align: right;
+  width: 460px;
+}
+
+.bottom-element {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 35px 18px 20px 20px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.bottom-text {
+  width: 460px;
+  margin-left: 4.3%;
+}
+
+
+/* ----------- INVERTED COLORS -------- */
+
+body.inverted {
+  background-color: #FAFAFA;
+  color: #171717;
+}
+
+body.inverted .header,
+body.inverted .footer,
+body.inverted .top-text,
+body.inverted .bottom-text,
+footer.inverted {
+    color: #171717;
+    background-color: white;
+}
+
+body.inverted .burger-icon rect {
+    fill: #171717;
+}
+
+/* ---------- MEDIA QUERIES --------- */
+
+/* Small devices (tablets, phones) */
+@media (max-width: 768px) {
+  .top-element {
+    flex-direction: column;
     gap: 20px;
-    overflow: hidden;
+    padding: 10px;
   }
-  
+
   .top-image {
-    height: 600px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 4.3%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
   }
-  
+
   .top-text {
-    display: flex;
-    width: 550px;
-    height: 260px;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 5%;
-    /* flex-shrink: 0; */
-    color: var(--white);
-    text-align: right;
-    font-family: Lexend Exa, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    gap: 20px;
+    width: 50%;
+    max-height: 30%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 14px;
   }
-  
-  
-  /* ---------- MEDIA QUERIES --------- */
-  
-  /* Small devices (tablets, phones) */
-  @media (max-width: 768px) {
-    .top-element {
-      flex-direction: column;
-      gap: 20px;
-      padding: 10px;
-    }
-  
-    .top-image {
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-    }
-  
-    .top-text {
-      width: 50%;
-      max-height: 30%;
-      text-align: center;
-      margin: 0 auto;
-      font-size: 14px;
-    }
-    
-  }
+}

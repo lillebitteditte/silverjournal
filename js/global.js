@@ -129,3 +129,86 @@ function toggleMenu() {
   });
   
   
+// ------ SWIPE FUNCTION FOR MOBILE --------
+
+let startX = 0;
+let isSwiping = false;
+
+// Touch start
+carouselContainer.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  isSwiping = true;
+});
+
+// Touch move
+carouselContainer.addEventListener("touchmove", (e) => {
+  if (!isSwiping) return;
+  const currentX = e.touches[0].clientX;
+  const deltaX = startX - currentX;
+
+  if (deltaX > 30) {
+    // LEFT SWIPE
+    currentIndex = Math.min(currentIndex + 1, heroPictures.length - 1);
+    updateCarousel();
+    isSwiping = false;
+  } else if (deltaX < -30) {
+    // RIGHT SWIPE
+    currentIndex = Math.max(currentIndex - 1, 0);
+    updateCarousel();
+    isSwiping = false;
+  }
+});
+
+// Touch end
+carouselContainer.addEventListener("touchend", () => {
+  isSwiping = false;
+});
+
+
+// FOOTER EMAIL COPY
+  function copyEmail(event) {
+    const email = "thesilverjournal@gmail.com";
+    
+    // Create temporary input element to hold email address
+    const input = document.createElement('input');
+    input.value = email;
+    document.body.appendChild(input);
+    
+    // Select text in the input field
+    input.select();
+    input.setSelectionRange(0, 99999); // For mobile 
+    
+    // Copy the text to clipboard
+    document.execCommand('copy');
+    
+    // Remove temporary input element from the DOM
+    document.body.removeChild(input);
+    
+    // Get position of the link (where user clicked)
+    const rect = event.target.getBoundingClientRect();
+    
+    // Get message element
+    const message = document.getElementById('copyMessage');
+    
+    // Position the message near the clicked link
+    message.style.left = rect.left + window.scrollX + 'px';
+    message.style.top = rect.top + window.scrollY - 30 + 'px'; // Position above the link
+    
+    // Display the message and set it to fade out
+    message.innerText = 'Email copied to clipboard!';
+    message.style.display = 'block';
+    
+   
+    setTimeout(() => {
+      message.style.opacity = '1';
+    }, 10); 
+    
+    
+    setTimeout(() => {
+      message.style.opacity = '0';
+    
+      setTimeout(() => {
+        message.style.display = 'none';
+      }, 500);
+    }, 2000);
+  }
