@@ -59,7 +59,7 @@ body {
   }
   
   .reach-out p:hover {
-    opacity: 0.7;
+    color: var(--pink);
   }
   
   .reach-out::before {
@@ -92,7 +92,7 @@ body {
   .social {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-xs);
   }
   
   .some-logos {

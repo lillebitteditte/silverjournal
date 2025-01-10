@@ -122,6 +122,10 @@ function initializeGallery(containerId, galleryData) {
 
  "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg",
 
+ // VERTICAL BALLOON
+
+ 
+
     // HORIZONTAL
     "https://thesilverjournal.com/wp-content/uploads/2024/12/Hellerup_1-1-scaled.jpg",
 

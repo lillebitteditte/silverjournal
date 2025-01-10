@@ -34,17 +34,17 @@
   #plus-button-grid {
     width: 100%; /* Makes it take up full width of the column */
     object-fit: contain;
-    overflow: visible; /* Ensures no part is clipped */
+    overflow: visible; /* Ensures no part is cropped */
   }
   
   #plus-button-grid img {
-    width: 100%; /* Ensures the image scales correctly */
-    object-fit: contain; /* Ensures the entire image is visible */
-    transition: transform 0.3s ease; /* Smooth zoom effect */
+    width: 100%; 
+    object-fit: contain; 
+    transition: transform 0.3s ease; 
   }
   
   #plus-button-grid:hover img {
-    transform: scale(1.01); /* Zoom effect on hover */
+    transform: scale(1.01); 
     cursor: pointer;
   }
   
