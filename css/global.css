@@ -161,8 +161,8 @@ header {
 {
   position: fixed;
   width: 100%;
-   bottom: 0;
-   background-color: var(--blackbackground) !important;
+  bottom: 0;
+  background-color: var(--blackbackground) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -174,8 +174,8 @@ header {
   justify-content: center;
   align-items: center;
   gap: 50px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .footer-item {
