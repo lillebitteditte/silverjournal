@@ -28,6 +28,10 @@ function silverjournal_enqueue_scripts() {
         wp_enqueue_style('about-css', get_template_directory_uri() . '/css/about.css', [], '1.0.0', 'all');
         wp_enqueue_script('about-js', get_template_directory_uri() . '/js/about.js', [], '1.0.0', true);
     }
+
+    if (is_page_template('contact.php')) {
+        wp_enqueue_style('contact-css', get_template_directory_uri() . '/css/contact.css', [], '1.0.0', 'all');
+    }
 }
 
 add_action('wp_enqueue_scripts', 'silverjournal_enqueue_scripts', 20);

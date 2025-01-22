@@ -89,3 +89,17 @@
     font-weight: bold;
     cursor: pointer;
   }
+
+  /* MEDIA QUERIES */
+
+/* Update gallery grid for mobile */
+@media (max-width: 768px) {
+  .grid-gallery {
+    display: block; /* Stack images vertically */
+    gap: 0; /* Remove gaps between images */
+  }
+
+  .grid-gallery .photo {
+    margin: 0; /* Remove margins */
+    width: 100%; /* Full width */
+  }

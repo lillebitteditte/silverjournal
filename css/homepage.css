@@ -1,31 +1,46 @@
 /* KARRUSEL */
 
 .carousel_wrapper {
-    position: relative;
+  position: relative;
+  max-width: 99vw;
+  margin: 0 auto var(--spacing-md);
+  padding: 0;
+  overflow-x: hidden;
+  
+  @media (width >=40em) {
+    max-width: 1000px;
+  }
+  
+   @media (width >=60em) {
     max-width: 1224px;
-    margin: 0 auto 40px;
-    overflow: hidden;
   }
+}
+
+.carousel_container {
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  position: relative;
+  width: 100%; 
+  transform: translateX(-75%); 
+  scroll-snap-type: x mandatory;
+  gap: var(--spacing-sm);
+}
   
-  .carousel_container {
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .carousel {
-    display: flex;
-    transition: transform 0.5s ease;
-    position: relative;
-    width: 100%; 
-    transform: translateX(-75%); 
-  }
-  
-  .carousel img {
-    width: 75%;
-    height: auto;
-    object-fit: cover;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
+.carousel img {
+  width: 75%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
   
   /* Current image positioned more to the left */
   .carousel img:nth-child(2) {
@@ -44,21 +59,59 @@
     font-family: Lexend Exa, sans-serif;
     margin-top: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    padding: 0;
+     
+     @media (width >= 40em) {
+      justify-content: flex-start;
+      padding: 0;
+    }
+    
+    @media(width >=60em) {
+      /* 960px - desktop */
+      justify-content: space-between;
+    }
+    
+    
   }
   
   .counter {
-    font-size: 16px;
+    font-size: 0.625rem;
     margin-left: 30px;
     font-weight: 300;
-    margin-right: 120px;
+    margin-right: 20px;
+    
+     @media(width >=40em) {
+       /* 640px - tablets */
+      font-size: 0.8rem;
+    }
+    
+    @media(width >=60em) {
+      /* 960px - desktop */
+      font-size: 1rem;
+      margin-left: 120px;
+      margin-right: 120px;
+    }
   }
   
   .image-info {
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 0.625rem;
     font-weight: 200;
-    margin-right: 120px;
+    margin-right: 80px;
+    
+      @media(width >=40em) {
+       /* 640px - tablets */
+      font-size: 0.8rem;
+      margin-right: 100px;
+    }
+    
+    @media(width >=60em) {
+      /* 960px - desktop */
+      font-size: 1rem;
+      margin-right: 120px;
+    }
+    
   }
   
   .arrow-right,
@@ -114,67 +167,162 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--blackbackground);
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
   }
   
   #carousel-modal .modal-content {
     display: flex;
-    flex-direction: row;
+    position: relative;
+    flex-direction: column;
     max-width: 100%;
-    max-height: 100%;
-    /* margin: auto; */
+    max-height: 100vh;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     overflow: hidden;
-    background-color: var(--blackbackground);
+    background-color: rgba(23, 23, 23, 0.7); /* <-- for alpha channel */
+    gap: 15px;
+    
+     @media(width >=40em) {
+       /* 640px - tablets */
+      font-size: 1.4rem;
+       flex-direction: row;
+       align-items: center;
+    }
+    
+    @media(width >=60em) {
+      /* 960px - desktop */
+      font-size: 1.8rem;
+      flex-direction: row;
+      align-items: center;
+    }
+    
   }
+
+  #carousel-modal .modal-image-wrapper {
+    width: 100%;
+    max-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   
   #carousel-modal img {
     flex: 1;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    
+    
+     @media(width >=40em) {
+       /* 640px - tablets */
+      max-width: 80%;
+    max-height: 95%;
+    }
+    
+    @media(width >=60em) {
+      /* 960px - desktop */
     max-width: 70%;
     max-height: 90%;
-    object-fit: contain;
-    margin-right: 10px;
+    }
+    
   }
   
   #carousel-modal .modal-text-container {
-    flex: 2;
+  
     color: var(--white);
     font-family: "Lexend Exa", sans-serif;
-    padding: 20px;
+    position: relative;
+    padding: 10px;
     overflow-y: auto;
     max-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
+     @media(width >=40em) {
+       /* 640px - tablets */
+      padding: 15px;
+    }
+    
+    @media(width >=60em) {
+      /* 960px - desktop */
+    padding: 20px;
+    }
+    
+    
   }
   
   #carousel-modal h2 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: var(--white);
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    color: white;
+    
+     @media(width >=40em) {
+       /* 640px - tablets */
+      font-size: 1.4rem;
+       margin-bottom: 5px;
+    }
+    
+    @media(width >=60em) {
+      /* 960px - desktop */
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    
+    
   }
   
   #carousel-modal p {
-    font-size: 16px;
+    font-size: 0.625rem;
     line-height: 1.5;
     font-weight: 200;
+    
+      @media(width >=40em) {
+      /* 960px - desktop */
+      font-size: 0.813rem;
+    }
+    
+     @media(width >=60em) {
+      /* 960px - desktop */
+      font-size: 1rem;
+    }
+    
+    
   }
   
   #carousel-modal-close {
     position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 2em;
-    color: var(--white);
+    top: -5px;
+    right: 5px;
+    font-size: 1rem;
+    color: white;
     cursor: pointer;
     background: none;
     border: none;
+    z-index: 1001;
+    
+       @media(width >=40em) {
+      /* 960px - desktop */
+      font-size: 0.813rem;
+    }
+    
+     @media(width >=60em) {
+      /* 960px - desktop */
+      position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+    }
+    
   }
   
   #carousel-modal-close:hover {

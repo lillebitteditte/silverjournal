@@ -9,17 +9,7 @@ Template Name: homepage-silverjournal
 
 
 <main> 
-    <svg
-      width="1062"
-      height="2"
-      viewbox="0 0 1082 2"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="line-top"
-    >
-      <line x1="1062" y1="1" y2="1" stroke="#FAFAFA" stroke-width="1" />
-    </svg>
-
+   
     <div class="carousel_wrapper">
       <button class="arrow-left">
         <svg 
@@ -58,15 +48,17 @@ Template Name: homepage-silverjournal
     <!--- MODAL FOR CAROUSEL IMAGES --->
 
     <div id="carousel-modal" class="hide">
-    <button id="carousel-modal-close">&times;</button>
-    <div class="modal-content">
-        <img id="carousel-modal-image" alt="Modal Image" />
-        <div class="modal-text-container">
-            <h2 id="carousel-modal-title"></h2>
-            <p id="carousel-modal-info"></p>
+      <div class="modal-content">
+        <button id="carousel-modal-close">&times;</button>
+        <div class="modal-image-wrapper">
+          <img id="carousel-modal-image" alt="Modal Image" />
         </div>
+        <div class="modal-text-container">
+          <h2 id="carousel-modal-title"></h2>
+          <p id="carousel-modal-info"></p>
+        </div>
+      </div>
     </div>
-</div>
 
 
     <div class="grid-container">

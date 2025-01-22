@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --white: #fcfbf8;
   --pink: #ffdef2;
@@ -15,16 +21,54 @@
   display: none !important;
 }
 
-body {
+html, body {
+  font-size: 16px;
+  padding-top: calc(12px + 1rem);
   background-color: var(--blackbackground);
+  width: 100%;
+  overflow-x: hidden;
+  
 }
 
 header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 5.7%;
+  padding: 5px 5.7% 0px;
   background-color: var(--blackbackground);
+  
+}
+
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: var(--blackbackground);
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.line-top {
+  position: absolute;
+  margin-left: 5.6%;
+  margin-bottom: 20px;
+  width: 0;
+  animation: drawLine 1.5s forwards;
+  animation-delay: 1s;
+  background-color: var(--blackbackground);
+  
+  @media (min-width: 40em) {
+    
+  margin-bottom: 0px;
+}
+  
+}
+
+.the-line {
+    margin-bottom: 1rem;
 }
 
 .header-container {
@@ -34,21 +78,41 @@ header {
   position: relative;
 }
 
+/* LOGO */
+
 .logo .logo-img {
   display: flex;
   justify-content: flex-start;
   height: 12px;
 }
 
-/* ANIMATION FOR LINE AND ARROW*/
-
-.line-top {
- margin-left: 5.6%;
- margin-bottom: 20px;
- width: 0; 
- animation: drawLine 1.5s forwards;
- animation-delay: 1s;
+.desktop-logo {
+  display: none;
+ 
 }
+
+/* Show phone logo by default */
+.phone-logo {
+  display: inline;
+  height: 2rem;
+  width: auto;
+}
+
+/* For screens larger than 40em (640px - tablets and desktop) */
+@media (min-width: 40em) {
+  .desktop-logo {
+    display: inline;
+    justify-content: flex-start;
+    height: 12px;
+    width: auto;
+  }
+  .phone-logo {
+    display: none;
+    
+  }
+}
+
+/* ANIMATION FOR LINE AND ARROW*/
 
 .arrow-right {
  opacity: 0; 
@@ -58,7 +122,7 @@ header {
 
 @keyframes drawLine {
  to {
-   width: 1046px; 
+   width: 100%; 
  }
 }
 
@@ -69,6 +133,13 @@ header {
 }
 
 /* MENU ELEMENTER */
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
 
 .burger-wrapper {
   cursor: pointer;
@@ -166,6 +237,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .footer-info {
@@ -176,13 +248,33 @@ header {
   gap: 50px;
   /* margin-top: 5px; */
   /* margin-bottom: 5px; */
+  @media(width >=40em) {
+    /* 640px - tablets */
+   gap: 30px;
+ }
+ 
+ @media(width >=60em) {
+   /* 960px - desktop */
+   gap: 50px;
+ }
 }
 
 .footer-item {
   color: var(--white);
   font-family: Lexend Exa, sans-serif;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 0.625rem;
+  
+    
+   @media(width >=40em) {
+     /* 640px - tablets */
+    font-size: 0.7rem;
+  }
+  
+  @media(width >=60em) {
+    /* 960px - desktop */
+    font-size: 0.8rem;
+  }
 }
 
 .footer-item:hover {
@@ -194,28 +286,12 @@ header {
 /* ------------ MEDIA QUERIES ----------- */
 
 /* ------- MOBILE - 768px ----- */
-@media (max-width: 768px) {
+@media (width <= 40em) {
   
-  .carousel_wrapper {
-    margin: 0;
-    width: 100vw;
-    padding: 0;
+  body {
+    overflow-x: hidden;
   }
-
-  .carousel_container {
-    width: 100vw;
-  }
-
-  .carousel {
-    width: 100vw;
-  }
-
-  .carousel img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    margin: 0;
-  }
+  
 
   /* MOBILE NAV */
   
@@ -223,13 +299,14 @@ header {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 80vw;
-    height: 100vh;
+    width: 40vw;
+    height: 90vh;
     background-color: var(--blackbackground);
     flex-direction: column;
-    padding: 80px 20px 20px;
+    padding: 30px 0px 0px 20px;
     transition: left 0.3s ease;
-    z-index: 15;
+    z-index: 2;
+    justify-content: space-evenly;
   }
 
   .menu-open.active {
@@ -237,6 +314,7 @@ header {
     visibility: visible;
     opacity: 1;
     transform: none;
+    z-index: 2;
   }
 
   .nav-item {
@@ -251,13 +329,15 @@ header {
 
   /* Adjust burger menu position */
   .burger-wrapper {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 20;
+    position: relative;
+    top: auto;
+    
+    left: auto;
+    z-index: 19;
+    margin-left: 2px;
   }
 
-  /* Carousel navigation adjustments */
+  
   .arrow-left,
   .arrow-right {
     top: 50%;
@@ -266,4 +346,6 @@ header {
     padding: 15px;
     border-radius: 50%;
   }
+  
+ 
 }
