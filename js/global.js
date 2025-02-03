@@ -167,7 +167,7 @@ carouselContainer.addEventListener("touchend", () => {
 
 // FOOTER EMAIL COPY
   function copyEmail(event) {
-    const email = "thesilverjournal@gmail.com";
+    const email = "thesilverjournal@outlook.com";
     
     // Create temporary input element to hold email address
     const input = document.createElement('input');

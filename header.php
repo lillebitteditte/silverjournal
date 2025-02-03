@@ -33,16 +33,16 @@
       </div>
     </div>
     <div id="menu-open" class="menu-open">
-      <a class="nav-item" href="https://thesilverjournal.com/about">About</a>
-      <a class="nav-item" href="https://thesilverjournal.com/gallery">Gallery</a>
-      <a class="nav-item" href="https://thesilverjournal.com/contact">Contact</a>
+      <a class="nav-item" href="https://thesilverjournal.com/about">about</a>
+      <a class="nav-item" href="https://thesilverjournal.com/gallery">gallery</a>
+      <a class="nav-item" href="https://thesilverjournal.com/contact">contact</a>
     </div>
   </div>
   <div class="logo">
           <a href="/">
             <picture>
               <img
-                src="https://cdn.glitch.global/2fb998cb-b7e3-4bf5-8d18-12cda316aedd/Logo.png?v=1733733444313"
+                src="https://thesilverjournal.com/wp-content/uploads/2025/02/logo2.png"
                 class="desktop-logo"
                 alt="The Silver Journal logo - Analog photographer in Copenhagen"
                 width="731"
@@ -50,7 +50,7 @@
               />
 
               <img
-                src="https://cdn.glitch.global/44d94b73-d8bc-4d79-ba31-5d94e07aea2f/phonelogo.png?v=1736940315840"
+                src="https://thesilverjournal.com/wp-content/uploads/2025/02/phonelogo2.png"
                 class="phone-logo"
                 alt="The Silver Journal logo - Analog photographer in Copenhagen"
                 width="254"

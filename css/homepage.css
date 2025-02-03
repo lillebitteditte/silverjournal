@@ -56,7 +56,7 @@
   
   .carousel-info {
     color: var(--white);
-    font-family: Lexend Exa, sans-serif;
+    font-family: Merriweather Sans, sans-serif;
     margin-top: 10px;
     display: flex;
     justify-content: flex-start;
@@ -235,7 +235,7 @@
   #carousel-modal .modal-text-container {
   
     color: var(--white);
-    font-family: "Lexend Exa", sans-serif;
+    font-family: "Merriweather Sans", sans-serif;
     position: relative;
     padding: 10px;
     overflow-y: auto;

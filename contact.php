@@ -24,7 +24,7 @@ Template Name: contact-silverjournal
                 <p>Let's create something beautiful together. I'm always open to new projects and collaborations.</p>
             </div>
             <div class="reach-out">
-                <p>thesilverjournal@gmail.com</p>
+                <p>thesilverjournal@outlook.com</p>
             </div>
         </div>
 
