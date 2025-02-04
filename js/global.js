@@ -1,40 +1,50 @@
+const {href, protocol} = window.location
+if (protocol === 'http:') {
+  window.location.replace(`https${href.slice(4)}`)
+}
+
+
 // MENU
 
 function toggleMenu() {
+  const menu = document.getElementById("menu-open");
+  const burgerWrapper = document.querySelector(".burger-wrapper");
+
+  menu.classList.toggle("active");
+  burgerWrapper.classList.toggle("active");
+}
+
+// Hide menu when a menu item is clicked
+document.querySelectorAll(".nav-item").forEach((item) => {
+  item.addEventListener("click", () => {
     const menu = document.getElementById("menu-open");
     const burgerWrapper = document.querySelector(".burger-wrapper");
-  
-    menu.classList.toggle("active");
-    burgerWrapper.classList.toggle("active");
-  }
-  
-  // Hide menu when item is clicked
-  document.querySelectorAll(".nav-item").forEach((item) => {
-    item.addEventListener("click", () => {
-      const menu = document.getElementById("menu-open");
-      const burgerWrapper = document.querySelector(".burger-wrapper");
-  
-      menu.classList.remove("active");
-      burgerWrapper.classList.remove("active");
-    });
+
+    menu.classList.remove("active");
+    burgerWrapper.classList.remove("active");
   });
-  
-  // KARRUSEL
-  
+});
+
+// KARRUSEL
+
+document.addEventListener("DOMContentLoaded", () => {
+  const arrowLeft = document.querySelector(".arrow-left");
+  const arrowRight = document.querySelector(".arrow-right");
+ 
   const heroPictures = [
     {
       title: "1",
       info: "the english garden",
       description: "munich (2021)",
       image:
-        "https://thesilverjournal.com/wp-content/uploads/2024/12/The-English-Garden-Munich-2021_1-scaled.jpg",
+        "https://cdn.glitch.global/47859fd9-ba01-4974-8569-e34829bff88a/DSC05493-Edit_1.jpg?v=1738052321128",
     },
     {
       title: "2",
       info: "",
       description: "",
       image:
-        "https://thesilverjournal.com/wp-content/uploads/2025/02/aboutHero_1000.png",
+        "https://cdn.glitch.global/47859fd9-ba01-4974-8569-e34829bff88a/aboutHero_1000.png?v=1738659329069",
     },
     {
       title: "3",
@@ -44,50 +54,136 @@ function toggleMenu() {
         "https://thesilverjournal.com/wp-content/uploads/2024/12/Eisbach-surfer_Munich_1-scaled.jpg",
     },
   ];
+  
+ const carouselContainer = document.getElementById("carousel-container");
+
   let currentIndex = 0;
-  const carouselContainer = document.getElementById("carousel-container");
   const infoContainer = document.createElement("div");
   infoContainer.classList.add("carousel-info");
-  carouselContainer.parentNode.insertBefore(infoContainer, carouselContainer.nextSibling);
+  carouselContainer.parentNode.insertBefore(infoContainer,     carouselContainer.nextSibling);
+
   
-  // -------------------- MODAL FOR CAROUSEL ---------------------
-  
-  const carouselModal = document.getElementById("carousel-modal");
-  const carouselModalImage = document.getElementById("carousel-modal-image");
-  const carouselModalTitle = document.getElementById("carousel-modal-title");
-  const carouselModalInfo = document.getElementById("carousel-modal-info");
-  const carouselModalClose = document.getElementById("carousel-modal-close");
-  
-  // Show carousel modal
-  function showCarouselModal(picture) {
-      carouselModalImage.src = picture.image;
-      carouselModalTitle.textContent = picture.info;
-      carouselModalInfo.textContent = picture.description;
-      carouselModal.classList.remove("hide");
-      carouselModal.style.display = "block";
-      document.body.classList.add("no-scroll");
-  }
-  
-  // Hide carousel modal
-  carouselModalClose.addEventListener("click", () => {
-      carouselModal.style.display = "none";
-      document.body.classList.remove("no-scroll");
-  });
-  
-  // Clear existing images and create new ones
-  function populateCarousel() {
-      carouselContainer.innerHTML = ''; 
-      heroPictures.forEach((picture) => {
-          const imgElement = document.createElement("img");
-          imgElement.src = picture.image;
-          imgElement.alt = picture.title;
-          imgElement.classList.add("carousel-item"); 
-          carouselContainer.appendChild(imgElement);
-      });
-  }
-  
-  // Update carousel and info display
+  // Update carousel and info
   function updateCarousel() {
+    let translateValue;
+    
+    if (currentIndex === heroPictures.length - 1) {
+     
+      translateValue = -(currentIndex * 62) + "%"; 
+    } else {
+      
+      translateValue = -(currentIndex * 75) + "%";
+    }
+
+    carouselContainer.style.transform = `translateX(${translateValue})`;
+    
+      // Update info and counter
+    const currentPicture = heroPictures[currentIndex];
+    infoContainer.innerHTML = `
+        <div class="carousel-counter-info">
+            
+            <span class="counter">${currentIndex + 1}/${heroPictures.length}</span>
+            <span class="image-info">${currentPicture.info}</span>
+            <button class="plus-button">+</button>
+            
+        </div>
+    `;
+    
+        // Add event listener for the plus button
+    const plusButton = infoContainer.querySelector(".plus-button");
+    plusButton.addEventListener("click", () => showCarouselModal(currentPicture));
+
+
+    // Handle arrow visibility
+    arrowLeft.style.display = currentIndex === 0 ? "none" : "block";
+    arrowRight.style.display = currentIndex === heroPictures.length - 1 ? "none" : "block";
+  }
+
+  function populateCarousel() {
+    carouselContainer.innerHTML = "";
+    heroPictures.forEach((picture) => {
+      const imgElement = document.createElement("img");
+      imgElement.src = picture.image;
+      imgElement.alt = picture.title;
+      imgElement.classList.add("carousel-item");
+      carouselContainer.appendChild(imgElement);
+    });
+  }
+
+  // Left arrow event
+  arrowLeft.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  // Right arrow event
+  arrowRight.addEventListener("click", () => {
+    if (currentIndex < heroPictures.length - 1) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  populateCarousel();
+  updateCarousel();
+
+
+
+// -------------------- MODAL FOR CAROUSEL ---------------------
+
+const carouselModal = document.getElementById("carousel-modal");
+const carouselModalImage = document.getElementById("carousel-modal-image");
+const carouselModalTitle = document.getElementById("carousel-modal-title");
+const carouselModalInfo = document.getElementById("carousel-modal-info");
+const carouselModalClose = document.getElementById("carousel-modal-close");
+
+// Show the carousel modal
+function showCarouselModal(picture) {
+    console.log('Modal opened with:', picture); // Add debugging
+    
+    // Make sure elements exist
+    if (!carouselModalImage || !carouselModalTitle || !carouselModalInfo) {
+        console.error('Modal elements not found');
+        return;
+    }
+    
+    // Force content visibility
+    carouselModalTitle.style.display = 'block';
+    carouselModalInfo.style.display = 'block';
+    
+    // Set content
+    carouselModalImage.src = picture.image;
+    carouselModalTitle.textContent = picture.info;
+    carouselModalInfo.textContent = picture.description;
+    
+    // Show modal
+    carouselModal.classList.remove("hide");
+    carouselModal.style.display = "flex";
+    document.body.classList.add("no-scroll");
+}
+
+// Hide the carousel modal
+carouselModalClose.addEventListener("click", () => {
+    carouselModal.style.display = "none";
+    document.body.classList.remove("no-scroll");
+});
+
+// Clear existing images and create new ones
+function populateCarousel() {
+    carouselContainer.innerHTML = ''; // Clear existing images
+    heroPictures.forEach((picture) => {
+        const imgElement = document.createElement("img");
+        imgElement.src = picture.image;
+        imgElement.alt = picture.title;
+        imgElement.classList.add("carousel-item"); 
+        carouselContainer.appendChild(imgElement);
+    });
+}
+
+// Update carousel and info display
+function updateCarousel() {
     let translateValue = -(currentIndex * 75) + "%";
     if (currentIndex === heroPictures.length - 1) {
         translateValue = -(currentIndex * 62) + "%";
@@ -128,31 +224,32 @@ function toggleMenu() {
     arrowLeft.style.display = currentIndex === 0 ? "none" : "block";
     arrowRight.style.display = currentIndex === heroPictures.length - 1 ? "none" : "block";
 }
-  
-  // Event listeners are added after the DOM isloaded
-  document.addEventListener('DOMContentLoaded', () => {
-      const arrowLeft = document.querySelector(".arrow-left");
-      const arrowRight = document.querySelector(".arrow-right");
-  
-      // Event listener for left arrow
-      arrowLeft.addEventListener("click", () => {
-          currentIndex = (currentIndex - 1 + heroPictures.length) % heroPictures.length;
-          updateCarousel();
-      });
-  
-      // Event listener for right arrow
-      arrowRight.addEventListener("click", () => {
-          currentIndex = (currentIndex + 1) % heroPictures.length;
-          updateCarousel();
-      });
-  
-      
-      populateCarousel();
-      updateCarousel();
-  });
-  
-  
-// ------ SWIPE FUNCTION FOR MOBILE --------
+
+
+// Ensure the event listeners are added after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const arrowLeft = document.querySelector(".arrow-left");
+    const arrowRight = document.querySelector(".arrow-right");
+
+    // Event listener for left arrow
+    arrowLeft.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + heroPictures.length) % heroPictures.length;
+        updateCarousel();
+    });
+
+    // Event listener for right arrow
+    arrowRight.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % heroPictures.length;
+        updateCarousel();
+    });
+
+    // Initial population and display
+    populateCarousel();
+    updateCarousel();
+});
+
+
+/*---------- SWIPE FUNCTION FOR MOBILE---------- */
 
 let startX = 0;
 let isSwiping = false;
@@ -170,12 +267,12 @@ carouselContainer.addEventListener("touchmove", (e) => {
   const deltaX = startX - currentX;
 
   if (deltaX > 30) {
-    // LEFT SWIPE
+    // Swipe left
     currentIndex = Math.min(currentIndex + 1, heroPictures.length - 1);
     updateCarousel();
     isSwiping = false;
   } else if (deltaX < -30) {
-    // RIGHT SWIPE
+    // Swipe right
     currentIndex = Math.max(currentIndex - 1, 0);
     updateCarousel();
     isSwiping = false;
@@ -186,52 +283,28 @@ carouselContainer.addEventListener("touchmove", (e) => {
 carouselContainer.addEventListener("touchend", () => {
   isSwiping = false;
 });
+  
+  });
 
 
 // FOOTER EMAIL COPY
   function copyEmail(event) {
     const email = "thesilverjournal@outlook.com";
     
-    // Create temporary input element to hold email address
+    // Create a temporary input element to hold the email address
     const input = document.createElement('input');
     input.value = email;
     document.body.appendChild(input);
     
-    // Select text in the input field
+    // Select the text in the input field
     input.select();
-    input.setSelectionRange(0, 99999); // For mobile 
+    input.setSelectionRange(0, 99999); // For mobile devices
     
-    // Copy the text to clipboard
+    // Copy the text to the clipboard
     document.execCommand('copy');
     
-    // Remove temporary input element from the DOM
+    // Remove the temporary input element from the DOM
     document.body.removeChild(input);
     
-    // Get position of the link (where user clicked)
-    const rect = event.target.getBoundingClientRect();
-    
-    // Get message element
-    const message = document.getElementById('copyMessage');
-    
-    // Position the message near the clicked link
-    message.style.left = rect.left + window.scrollX + 'px';
-    message.style.top = rect.top + window.scrollY - 30 + 'px'; // Position above the link
-    
-    // Display the message and set it to fade out
-    message.innerText = 'Email copied to clipboard!';
-    message.style.display = 'block';
-    
-   
-    setTimeout(() => {
-      message.style.opacity = '1';
-    }, 10); 
-    
-    
-    setTimeout(() => {
-      message.style.opacity = '0';
-    
-      setTimeout(() => {
-        message.style.display = 'none';
-      }, 500);
-    }, 2000);
+  
   }
