@@ -33,6 +33,7 @@
   
   #plus-button-grid {
     width: 100%; /* Makes it take up full width of the column */
+    height: 120%;
     object-fit: contain;
     overflow: visible; /* Ensures no part is cropped */
   }

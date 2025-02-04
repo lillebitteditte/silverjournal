@@ -24,22 +24,22 @@ function toggleMenu() {
   const heroPictures = [
     {
       title: "1",
-      info: "munich",
-      description: "The English Garden",
+      info: "the english garden",
+      description: "munich (2021)",
       image:
         "https://thesilverjournal.com/wp-content/uploads/2024/12/The-English-Garden-Munich-2021_1-scaled.jpg",
     },
     {
       title: "2",
-      info: "cph",
-      description: "Backyard vibes",
+      info: "",
+      description: "",
       image:
-        "https://thesilverjournal.com/wp-content/uploads/2024/12/Munich_1-scaled.jpg",
+        "https://thesilverjournal.com/wp-content/uploads/2025/02/aboutHero_1000.png",
     },
     {
       title: "3",
-      info: "munich",
-      description: "Eisbach surfer",
+      info: "eisbach surfer",
+      description: "munich (2021)",
       image:
         "https://thesilverjournal.com/wp-content/uploads/2024/12/Eisbach-surfer_Munich_1-scaled.jpg",
     },
@@ -88,23 +88,46 @@ function toggleMenu() {
   
   // Update carousel and info display
   function updateCarousel() {
-      // Update position of carousell
-      carouselContainer.style.transform = `translateX(${-currentIndex * 75}%)`;
-  
-      // Update info and counter
-      const currentPicture = heroPictures[currentIndex];
-      infoContainer.innerHTML = `
-          <div class="carousel-counter-info">
-              <span class="counter">${currentIndex + 1}/${heroPictures.length}</span>
-              <span class="image-info">${currentPicture.info}</span>
-              <button class="plus-button">+</button>
-          </div>
-      `;
-  
-      // Event listener for the plus button
-      const plusButton = infoContainer.querySelector(".plus-button");
-      plusButton.addEventListener("click", () => showCarouselModal(currentPicture));
-  }
+    let translateValue = -(currentIndex * 75) + "%";
+    if (currentIndex === heroPictures.length - 1) {
+        translateValue = -(currentIndex * 62) + "%";
+    }
+
+    carouselContainer.style.transform = `translateX(${translateValue})`;
+
+    const currentPicture = heroPictures[currentIndex];
+
+    // Move the existing arrows into the infoContainer
+    infoContainer.innerHTML = ""; // Clear previous content
+    infoContainer.appendChild(arrowLeft); // Move left arrow inside
+    
+    // Add counter
+    const counter = document.createElement("span");
+    counter.classList.add("counter");
+    counter.textContent = `${currentIndex + 1}/${heroPictures.length}`;
+    infoContainer.appendChild(counter);
+
+    // Add image info only if it's NOT the second image
+    if (currentIndex !== 1) {
+        const imageInfo = document.createElement("span");
+        imageInfo.classList.add("image-info");
+        imageInfo.textContent = currentPicture.info;
+        infoContainer.appendChild(imageInfo);
+
+        // Add plus button
+        const plusButton = document.createElement("button");
+        plusButton.classList.add("plus-button");
+        plusButton.textContent = "+";
+        plusButton.addEventListener("click", () => showCarouselModal(currentPicture));
+        infoContainer.appendChild(plusButton);
+    }
+
+    infoContainer.appendChild(arrowRight); // Move right arrow inside
+
+    // Show/hide arrows based on position
+    arrowLeft.style.display = currentIndex === 0 ? "none" : "block";
+    arrowRight.style.display = currentIndex === heroPictures.length - 1 ? "none" : "block";
+}
   
   // Event listeners are added after the DOM isloaded
   document.addEventListener('DOMContentLoaded', () => {
