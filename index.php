@@ -47,17 +47,17 @@ Template Name: homepage-silverjournal
 
     <!--- MODAL FOR CAROUSEL IMAGES --->
 
-    <div id="carousel-modal" class="hide">
-      <div class="modal-content">
+    <div id="carousel-modal" class="carousel-modal">
+      
         <button id="carousel-modal-close">&times;</button>
-        <div class="modal-image-wrapper">
+      
           <img id="carousel-modal-image" alt="Modal Image" />
-        </div>
+    
         <div class="modal-text-container">
           <h2 id="carousel-modal-title"></h2>
           <p id="carousel-modal-info"></p>
         </div>
-      </div>
+     
     </div>
 
 
