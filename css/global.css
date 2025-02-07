@@ -103,7 +103,7 @@ header {
   .desktop-logo {
     display: inline;
     justify-content: flex-start;
-    height: 12px;
+    height: 36px;
     width: auto;
   }
   .phone-logo {

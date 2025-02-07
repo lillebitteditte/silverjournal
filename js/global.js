@@ -161,13 +161,13 @@ function showCarouselModal(picture) {
     // Show modal
     carouselModal.classList.remove("hide");
     carouselModal.style.display = "flex";
-    document.body.classList.add("no-scroll");
+    document.documentElement.classList.add("no-scroll");
 }
 
 // Hide the carousel modal
 carouselModalClose.addEventListener("click", () => {
     carouselModal.style.display = "none";
-    document.body.classList.remove("no-scroll");
+    document.documentElement.classList.remove("no-scroll");
 });
 
 // Clear existing images and create new ones
