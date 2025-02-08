@@ -36,7 +36,7 @@ function initializeGallery(containerId, galleryData) {
                             <img src="${linkItem.image}" alt="" />
                           </a>
                         </div>`;
-      columns[2].push(linkHtml);
+      columns[1].push(linkHtml);
     }
   
     // RENDER COLUMNS
@@ -72,22 +72,29 @@ function initializeGallery(containerId, galleryData) {
   // PICTURES FOR FRONTPAGE (index.html)
   const frontPageData = [
 
-    // HORIZONTAL
-    "https://thesilverjournal.com/wp-content/uploads/2024/12/Directions_1-scaled.jpg",
-
     // VERTICAL
     "https://thesilverjournal.com/wp-content/uploads/2024/12/Frederiksberg_1-scaled.jpg",
 
-     // VERTICAL
-
-     "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg",
-
     // HORIZONTAL
-    "https://thesilverjournal.com/wp-content/uploads/2024/12/Covid-in-Munich_1-scaled.jpg",
-
-    // HORIZONTAL
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/Directions_1-scaled.jpg",
 
     "https://thesilverjournal.com/wp-content/uploads/2024/12/Early-morning-ferry-Kalundborg_1-scaled.jpg",
+
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/Covid-in-Munich_1-scaled.jpg",
+
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/Oestrig_1-scaled.jpg",
+
+    // VERTICAL
+
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/Ditte-Marie_1-scaled.jpg",
+
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/Sofie_1-scaled.jpg",
+
+    "https://thesilverjournal.com/wp-content/uploads/2025/02/AA035-2-scaled.jpg",
+
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg",
+
+
 
 
     {
@@ -100,38 +107,52 @@ function initializeGallery(containerId, galleryData) {
   // PICTURES FOR GALLERY (gallery.html)
   const galleryPageData = [
 
- // HORIZONTAL
- "https://thesilverjournal.com/wp-content/uploads/2024/12/Directions_1-scaled.jpg",
+      // VERTICAL
+      "https://thesilverjournal.com/wp-content/uploads/2024/12/Frederiksberg_1-scaled.jpg",
 
- // VERTICAL
- "https://thesilverjournal.com/wp-content/uploads/2024/12/Frederiksberg_1-scaled.jpg",
-
- // HORIZONTAL
- "https://thesilverjournal.com/wp-content/uploads/2024/12/Covid-in-Munich_1-scaled.jpg",
-
- // HORIZONTAL
-
- "https://thesilverjournal.com/wp-content/uploads/2024/12/Early-morning-ferry-Kalundborg_1-scaled.jpg",
-
+      // HORIZONTAL
+      "https://thesilverjournal.com/wp-content/uploads/2024/12/Directions_1-scaled.jpg",
+  
+      "https://thesilverjournal.com/wp-content/uploads/2024/12/Early-morning-ferry-Kalundborg_1-scaled.jpg",
+  
+      "https://thesilverjournal.com/wp-content/uploads/2024/12/Covid-in-Munich_1-scaled.jpg",
+  
+      "https://thesilverjournal.com/wp-content/uploads/2024/12/Oestrig_1-scaled.jpg",
+  
+      // VERTICAL
+  
+      "https://thesilverjournal.com/wp-content/uploads/2024/12/Ditte-Marie_1-scaled.jpg",
+  
+      "https://thesilverjournal.com/wp-content/uploads/2024/12/Sofie_1-scaled.jpg",
+  
+      "https://thesilverjournal.com/wp-content/uploads/2025/02/AA035-2-scaled.jpg",
+  
+      "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg",
 
     // HORIZONTAL HORSE PIC
     
     "https://thesilverjournal.com/wp-content/uploads/2024/12/img026_1-scaled.jpg",
 
-     // VERTICAL
-
- "https://thesilverjournal.com/wp-content/uploads/2024/12/The-Royal-Gardens-Frederiksberg_1-scaled.jpg",
-
- // VERTICAL BALLOON
-
- 
-
-    // HORIZONTAL
     "https://thesilverjournal.com/wp-content/uploads/2024/12/Hellerup_1-1-scaled.jpg",
 
-    "https://thesilverjournal.com/wp-content/uploads/2024/12/Munich-2021_1-scaled.jpg",
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/Munich-2021_1-scaled.jpg",     
 
-    "https://thesilverjournal.com/wp-content/uploads/2024/12/Oestrig_1-scaled.jpg"
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/T-rex-amen_1-scaled.jpg",
+
+
+    // VERTICAL BALLOON
+
+    "https://thesilverjournal.com/wp-content/uploads/2025/02/img046-50-percent-bicubic-sharper_1-scaled.jpg",
+
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/Covid-in-Munich_1-scaled.jpg",
+    
+    // vertical birdhouse
+
+    "https://thesilverjournal.com/wp-content/uploads/2025/02/000046580008-2_1-scaled.jpg",
+
+    "https://thesilverjournal.com/wp-content/uploads/2024/12/Autobahn-view_1-scaled.jpg",
+
+    "https://thesilverjournal.com/wp-content/uploads/2025/02/Royal-gardens_6-3_1-scaled.jpg",
 
 
   ];
