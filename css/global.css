@@ -293,6 +293,24 @@ header {
   cursor: pointer;
 }
 
+.copy-message {
+  opacity: 0;
+  position: absolute;
+  color: white;
+  padding: 3px 10px;
+
+  font-size: 0.7rem;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  transform: translateY(-10%);
+  margin-left: 5px;
+}
+
+.copy-message.show {
+  opacity: 1;
+}
+
+
 /* ------------ MEDIA QUERIES ----------- */
 
 /* ------- MOBILE - 768px ----- */

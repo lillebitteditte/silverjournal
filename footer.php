@@ -3,7 +3,11 @@
        
         <a class="footer-item" href="https://www.youtube.com/@TheSilverJournall">youtube</a>
         <a class="footer-item" href="https://www.instagram.com/thesilverjournall/">instagram</a>
-        <a class="footer-item" onclick="copyEmail()">thesilverjournal@outlook.com</a>
+        <a class="footer-item" onclick="copyEmail()"
+          >thesilverjournal@outlook.com
+        <span class="copy-message">copied</span>
+        </a
+        >
         
       </div>
     </footer>
