@@ -164,6 +164,15 @@ header {
   justify-content: space-evenly;
 }
 
+/* SAFARI */
+
+/* Safari-specific rule */
+@supports (-webkit-backdrop-filter: blur(0)) {
+  .menu-open {
+    left: 30px; /* Safari-specific value */
+  }
+}
+
 .menu-open.active {
   visibility: visible;
   opacity: 1;

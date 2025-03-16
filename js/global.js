@@ -1,8 +1,3 @@
-const {href, protocol} = window.location
-if (protocol === 'http:') {
-  window.location.replace(`https${href.slice(4)}`)
-}
-
 
 // MENU
 
@@ -37,14 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "the english garden",
       description: "munich (2021)",
       image:
-        "https://cdn.glitch.global/47859fd9-ba01-4974-8569-e34829bff88a/DSC05493-Edit_1.jpg?v=1738052321128",
+        "https://thesilverjournal.com/wp-content/uploads/2024/12/The-English-Garden-Munich-2021_1-scaled.jpg",
     },
     {
       title: "2",
       info: "",
       description: "",
       image:
-        "https://cdn.glitch.global/47859fd9-ba01-4974-8569-e34829bff88a/aboutHero_1000.png?v=1738659329069",
+        "https://thesilverjournal.com/wp-content/uploads/2025/02/aboutHeroSmallLettersFinal.png",
     },
     {
       title: "3",
@@ -218,7 +213,7 @@ function updateCarousel() {
         infoContainer.appendChild(plusButton);
     }
 
-    infoContainer.appendChild(arrowRight); // Move right arrow inside
+    // infoContainer.appendChild(arrowRight); // Move right arrow inside
 
     // Show/hide arrows based on position
     arrowLeft.style.display = currentIndex === 0 ? "none" : "block";
