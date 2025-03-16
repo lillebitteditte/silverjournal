@@ -1,73 +1,88 @@
 
+// Funktion til at initialisere et galleri
 function initializeGallery(containerId, galleryData) {
-    const grid = document.getElementById(containerId);
-    if (!grid) return;
-  
-    const modalContainer = document.getElementById("modal-container");
-    const modalImage = document.getElementById("modal-image");
-    const modalClose = document.getElementById("modal-close");
-  
-    const columns = [[], [], []];
-    let linkItem = null;
-  
-    // SEPARATE THE PLUS BUTTON
-    galleryData.forEach((item) => {
-      if (item.type === "link") {
-        linkItem = item;
-        return;
-      }
-    });
-  
-    // IMAGES IN COLUMN
-    galleryData.forEach((item, index) => {
-      if (typeof item === "string") {
-        const columnIndex = index % 3;
-        const html = `<div class="photo" data-src="${item}" loading="lazy">
-                        <img src="${item}" alt="" />
-                      </div>`;
-        columns[columnIndex].push(html);
-      }
-    });
-  
-    // PLUS BUTTON AS LAST IMAGE
-    if (linkItem) {
-      const linkHtml = `<div class="photo" id="plus-button-grid">
-                          <a href="${linkItem.url}">
-                            <img src="${linkItem.image}" alt="" />
-                          </a>
-                        </div>`;
-      columns[1].push(linkHtml);
+  const grid = document.getElementById(containerId);
+  if (!grid) return;
+
+  const modalContainer = document.getElementById("modal-container");
+  const modalImage = document.getElementById("modal-image");
+  const modalClose = document.getElementById("modal-close");
+
+  const columnCount = window.innerWidth <= 768 ? 2 : 3;
+  const columns = Array(columnCount).fill().map(() => []);
+  let linkItem = null;
+
+  // Separate link item (e.g., "plus button")
+  galleryData.forEach((item) => {
+    if (item.type === "link") {
+      linkItem = item;
+      return;
     }
-  
-    // RENDER COLUMNS
-    columns.forEach((column) => {
-      const div = document.createElement("div");
-      div.className = "column";
-      div.innerHTML = column.join("");
-      grid.appendChild(div);
-    });
-  
-    // MODAL FUNCTION
-    grid.addEventListener("click", (event) => {
-      const photoElement = event.target.closest(".photo");
-      if (photoElement && !photoElement.closest("#plus-button-grid")) {
-        const imageSrc = photoElement.dataset.src || photoElement.querySelector("img").src;
-        modalImage.src = imageSrc;
-        modalContainer.classList.remove("hide");
-      }
-    });
-  
-    // CLOSE MODAL
-    modalClose.addEventListener("click", () => {
+  });
+
+  // Organize images into columns
+  galleryData.forEach((item, index) => {
+    if (typeof item === "string") {
+      const columnIndex = index % columnCount;
+      const html = `<div class="photo" data-src="${item}" loading="lazy">
+                      <img src="${item}" alt="" />
+                    </div>`;
+      columns[columnIndex].push(html);
+    }
+  });
+
+  // Add link item to the last column
+ if (linkItem) {
+  const middleColumnIndex = Math.floor(columnCount / 2);
+  const linkHtml = `<div class="photo" id="plus-button-grid">
+                     <a href="${linkItem.url}">
+                       <img src="${linkItem.image}" alt="" />
+                     </a>
+                   </div>`;
+  columns[middleColumnIndex].push(linkHtml);
+}
+
+  // Render columns
+  columns.forEach((column) => {
+    const div = document.createElement("div");
+    div.className = "column";
+    div.innerHTML = column.join("");
+    grid.appendChild(div);
+  });
+
+  // Add modal functionality
+  grid.addEventListener("click", (event) => {
+    const photoElement = event.target.closest(".photo");
+    if (photoElement && !photoElement.closest("#plus-button-grid")) {
+      const imageSrc = photoElement.dataset.src || photoElement.querySelector("img").src;
+      modalImage.src = imageSrc;
+      modalContainer.classList.remove("hide");
+    }
+  });
+
+  // Close modal
+  modalClose.addEventListener("click", () => {
+    modalContainer.classList.add("hide");
+  });
+
+  modalContainer.addEventListener("click", (event) => {
+    if (event.target === modalContainer) {
       modalContainer.classList.add("hide");
-    });
-  
-    modalContainer.addEventListener("click", (event) => {
-      if (event.target === modalContainer) {
-        modalContainer.classList.add("hide");
-      }
-    });
+    }
+  });
+}
+
+window.addEventListener('resize', () => {
+  if (document.getElementById("dynamic-grid")) {
+    document.getElementById("dynamic-grid").innerHTML = '';
+    initializeGallery("dynamic-grid", frontPageData);
   }
+
+  if (document.getElementById("gallery-grid")) {
+    document.getElementById("gallery-grid").innerHTML = '';
+    initializeGallery("gallery-grid", galleryPageData);
+  }
+});
   
   // PICTURES FOR FRONTPAGE (index.html)
   const frontPageData = [
