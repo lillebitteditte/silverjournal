@@ -32,21 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "the english garden",
       description: "munich (2021)",
       image:
-        "https://thesilverjournal.com/wp-content/uploads/2024/12/The-English-Garden-Munich-2021_1-scaled.jpg",
+        "https://thesilverjournal.com/wp-content/uploads/2025/03/the_english_garden-scaled.jpg",
     },
     {
       title: "2",
       info: "",
       description: "",
       image:
-        "https://thesilverjournal.com/wp-content/uploads/2025/02/aboutHeroSmallLettersFinal.png",
+        "https://thesilverjournal.com/wp-content/uploads/2025/03/aboutHero-scaled.jpg",
     },
     {
       title: "3",
       info: "eisbach surfer",
       description: "munich (2021)",
       image:
-        "https://thesilverjournal.com/wp-content/uploads/2024/12/Eisbach-surfer_Munich_1-scaled.jpg",
+        "https://thesilverjournal.com/wp-content/uploads/2025/03/Eisbach-surfer_Munich-scaled.jpg",
     },
   ];
   
