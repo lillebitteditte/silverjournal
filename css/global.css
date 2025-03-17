@@ -52,10 +52,10 @@ header {
   
 }
 
-.grid-container {
+/* .grid-container {
   width: 100%;
   overflow-x: hidden;
-}
+} */ 
 
 .line-top {
   position: absolute;
