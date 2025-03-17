@@ -51,7 +51,7 @@
           <a href="/">
             <picture>
               <img
-                src="https://thesilverjournal.com/wp-content/uploads/2025/02/logo2.png"
+                src="https://thesilverjournal.com/wp-content/uploads/2025/02/logo2-e1742227692709.png"
                 class="desktop-logo"
                 alt="The Silver Journal logo - Analog photographer in Copenhagen"
                 width="731"
