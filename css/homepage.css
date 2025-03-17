@@ -2,10 +2,10 @@
 
 .carousel_wrapper {
   position: relative;
-  max-width: 99vw;
+  max-width: 100%;
   margin: 0 auto var(--spacing-md);
   padding: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   
   @media (width >=40em) {
     max-width: 1000px;
@@ -18,8 +18,10 @@
 
 .carousel_container {
   overflow: hidden;
-  overflow-x: hidden;
+  
   position: relative;
+  
+  width: 100%;
 }
 
 .carousel {
@@ -170,11 +172,14 @@ html.no-scroll {
      height: 100%;
      background-color: rgba(0, 0, 0, 0.9);
      z-index: 2000;
-     /* justify-content: center; */
-     /* align-items: center; */
+   
      padding: 10px;
-     /* box-sizing: border-box; */
+    overflow: auto;
  }
+
+body.modal-open {
+  overflow: hidden;
+}
 
 .modal-content {
   display: flex;
