@@ -129,11 +129,25 @@
 }
 
 .arrow-left {
-  left: 20px;
+  left: 0px;
+    @media (width >=40em) {
+   left: 20px;
+  }
+  
+  @media (width >=60em) {
+   left: 20px;
+  }
 }
 
 .arrow-right {
-  right: 20px;
+   right: 0px;
+    @media (width >=40em) {
+   right: 20px;
+  }
+  
+  @media (width >=60em) {
+   right: 20px;
+  }
 }
 
 .arrow-right:hover,
