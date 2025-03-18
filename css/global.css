@@ -32,13 +32,14 @@ html, body {
 }
 
 header {
-  position: relative;
+  width: 100%;
+  max-width: 1224px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 5.7% 0px;
+  padding: 5px 0px 0px;
   background-color: var(--blackbackground);
-  
+  max-width: 1224px;
 }
 
 .header-wrapper {
@@ -49,13 +50,9 @@ header {
   background-color: var(--blackbackground);
   display: flex;
   flex-direction: column;
-  
+  align-items: center;
 }
 
-/* .grid-container {
-  width: 100%;
-  overflow-x: hidden;
-} */ 
 
 .line-top {
   position: absolute;
