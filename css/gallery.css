@@ -10,19 +10,19 @@
 
 .grid-gallery {
   display: flex;
-  gap: 20px;
+  gap: 3px;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 3px;
   flex: 1;
 }
 
 .photo img {
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   object-fit: cover;
 }
 
@@ -99,11 +99,11 @@
 @media (max-width: 768px) {
   .grid-gallery {
     display: flex; 
-    gap: 10px; /* Smaller gap for mobile */
+    gap: 5px; /* Smaller gap for mobile */
   }
   
   .column {
-    gap: 10px; /* Smaller gap between photos in column */
+    gap: 5px; /* Smaller gap between photos in column */
   }
   
   .photo {

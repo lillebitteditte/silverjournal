@@ -80,7 +80,7 @@
           <line
             x1="0"
             y1="1"
-            x2="830"
+            x2="900"
             y2="1"
             stroke="#FAFAFA"
             stroke-width="1"

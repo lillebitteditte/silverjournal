@@ -58,8 +58,8 @@ header {
   position: relative;
   width: 0;
   animation: drawLine 1.5s forwards;
-  animation-delay: 1s;
-  margin-left: 0;
+  animation-delay: 0.5s;
+  margin-left: -3px;
   
   @media (min-width: 40em) {
     
