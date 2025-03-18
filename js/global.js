@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "",
       description: "",
       image:
-        "https://thesilverjournal.com/wp-content/uploads/2025/03/aboutHero-scaled.jpg",
+        "https://thesilverjournal.com/wp-content/uploads/2025/03/aboutHero-scaled-e1742292362152.jpg",
     },
     {
       title: "3",
