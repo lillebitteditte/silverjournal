@@ -182,7 +182,7 @@ header {
 /* Safari-specific rule */
 @supports (-webkit-backdrop-filter: blur(0)) {
   .menu-open {
-    left: 30px; /* Safari-specific value */
+    left: 150px; /* Safari-specific value */
   }
 }
 
