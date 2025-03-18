@@ -300,6 +300,7 @@ header {
 }
 
 .copy-message {
+  display: none;
   opacity: 0;
   position: absolute;
   color: white;
@@ -313,6 +314,7 @@ header {
 }
 
 .copy-message.show {
+  display: inline-block;
   opacity: 1;
 }
 
@@ -325,35 +327,6 @@ header {
   body {
     overflow-x: hidden;
   }
-
-
-  @media (min-width: 80em) { /* 1280px - larger desktops */
-    header {
-      padding: 5px 19% 0px; /* Reduce side padding percentage */
-    }
-     
-    
-    .line-top {
-      margin-left: 19%; /* Match header padding */
-    }
-
-    @keyframes drawLine {
-      to {
-        width: 80%; /* Even shorter line for large desktops */
-      }
-    }
-    
-    /* You might also need to adjust the container width */
-    .the-line {
-      width: 100%;
-      overflow: hidden;
-    }
-
-
-
-  }
-
-  
 
   /* MOBILE NAV */
   

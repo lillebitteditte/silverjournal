@@ -286,28 +286,43 @@ carouselContainer.addEventListener("touchend", () => {
 function copyEmail(event) {
   const email = "thesilverjournal@outlook.com";
   
-  // Create a temporary input element to hold the email address
-  const input = document.createElement('input');
-  input.value = email;
-  document.body.appendChild(input);
-  
-  // Select the text in the input field
-  input.select();
-  input.setSelectionRange(0, 99999); // For mobile devices
-  
-  // Copy the text to the clipboard
-  document.execCommand('copy');
-  
-  // Remove the temporary input element from the DOM
-  document.body.removeChild(input);
-  
-  // Show the "Copied!" message
-const copyMessage = document.querySelector('.copy-message');
-copyMessage.classList.add('show');
+  // For modern browsers, use clipboard API
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(email)
+      .then(() => {
+        showCopyMessage();
+      })
+      .catch(err => {
+        console.error('Could not copy text: ', err);
+      });
+  } else {
+    // Fallback for older browsers
+    const input = document.createElement('input');
+    input.value = email;
+    input.style.position = 'fixed';
+    input.style.opacity = 0;
+    document.body.appendChild(input);
+    
+    input.select();
+    input.setSelectionRange(0, 99999); // For mobile devices
+    
+    try {
+      document.execCommand('copy');
+      showCopyMessage();
+    } catch (err) {
+      console.error('Could not copy text: ', err);
+    }
+    
+    document.body.removeChild(input);
+  }
+}
 
-// Hide the message after 2 seconds
-setTimeout(() => {
-  copyMessage.classList.remove('show');
-}, 2000);
-
+function showCopyMessage() {
+  const copyMessage = document.querySelector('.copy-message');
+  copyMessage.classList.add('show');
+  
+  // Hide the message after 2 seconds
+  setTimeout(() => {
+    copyMessage.classList.remove('show');
+  }, 2000);
 }
