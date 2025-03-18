@@ -40,7 +40,7 @@ header {
   padding: 5px 0px 0px;
   background-color: var(--blackbackground);
 
-  @media (min-width: 40em) {
+  @media(width <=40em) {
     
     padding: 5px 5px 0px;
   }
@@ -65,7 +65,7 @@ header {
   animation-delay: 0.5s;
   margin-left: -3px;
   
-  @media (min-width: 40em) {
+  @media(width <=40em){
     
     margin-left: 3px;
   }
@@ -78,7 +78,7 @@ header {
   width: 100%;
   max-width: 1224px; /* Match carousel max-width */
   position: relative;
-  @media (min-width: 40em) {
+  @media(width <=40em) {
     
     margin-bottom: 0px;
   }
