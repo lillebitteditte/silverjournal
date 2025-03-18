@@ -24,7 +24,7 @@ function initializeGallery(containerId, galleryData) {
   galleryData.forEach((item, index) => {
     if (typeof item === "string") {
       const columnIndex = index % columnCount;
-      const html = `<div class="photo" data-src="${item}" loading="lazy">
+      const html = `<div class="photo" data-src="${item}">
                       <img src="${item}" alt="" />
                     </div>`;
       columns[columnIndex].push(html);
