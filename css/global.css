@@ -55,13 +55,11 @@ header {
 
 
 .line-top {
-  position: absolute;
-  margin-left: 5.6%;
-  margin-bottom: 20px;
+  position: relative;
   width: 0;
   animation: drawLine 1.5s forwards;
   animation-delay: 1s;
-  background-color: var(--blackbackground);
+  margin-left: 0;
   
   @media (min-width: 40em) {
     
@@ -72,6 +70,9 @@ header {
 
 .the-line {
     margin-bottom: 1rem;
+  width: 100%;
+  max-width: 1224px; /* Match your carousel max-width */
+  position: relative;
 }
 
 .header-container {
