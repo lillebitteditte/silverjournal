@@ -1,18 +1,28 @@
    /* About page specific styles */
+   body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+   
    .about-page {
     display: flex;
-    padding: 0 5.7%;
-    max-width: 1224px;
     justify-content: center;
     align-items: center;
-    margin-left: auto;  
-    margin-right: auto; 
-    width: 100%;        
+    min-height: 100vh; 
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 0; 
+    box-sizing: border-box;    
   }
   
   .content-wrapper {
     display: flex;
     width: 100%;
+    max-width: 1224px; /* Move max-width here */
+    padding: 0 1%;
+    box-sizing: border-box;
   }
   
   .text-column {
@@ -81,39 +91,14 @@
   
   @media (max-width: 40em) {
     .about-page {
-      margin-top: 60px;
-      height: calc(100vh - 120px);
-      padding: 0 4%;
+      min-height: auto; 
+      padding-top: 60px; 
+      
     }
-    
+  
     .content-wrapper {
+       padding: 3%;
       flex-direction: column;
     }
-    
-    .text-column {
-      padding-right: 0;
-      margin-bottom: 2rem;
-    }
-    
-    .image-column {
-      margin-bottom: 4rem;
-    }
-    
-    .about-header h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-    
-    .about-text {
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-    
-    .image-wrapper {
-      padding: 1rem;
-    }
-    
-    .about-image img {
-      max-height: 40vh;
-    }
+   
   }
