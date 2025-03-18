@@ -39,7 +39,11 @@ header {
   align-items: center;
   padding: 5px 0px 0px;
   background-color: var(--blackbackground);
-  max-width: 1224px;
+
+  @media (min-width: 40em) {
+    
+    padding: 5px 5px 0px;
+  }
 }
 
 .header-wrapper {
@@ -63,16 +67,21 @@ header {
   
   @media (min-width: 40em) {
     
-  margin-bottom: 0px;
-}
-  
+    margin-left: 3px;
+  }
+
+
 }
 
 .the-line {
     margin-bottom: 1rem;
   width: 100%;
-  max-width: 1224px; /* Match your carousel max-width */
+  max-width: 1224px; /* Match carousel max-width */
   position: relative;
+  @media (min-width: 40em) {
+    
+    margin-bottom: 0px;
+  }
 }
 
 .header-container {
