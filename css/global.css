@@ -293,7 +293,7 @@ header {
 
 .footer
 {
-  position: fixed;
+  position: sticky;
    bottom: 0;
   justify-content: center;
 
