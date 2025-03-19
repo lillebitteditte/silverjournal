@@ -70,6 +70,7 @@
         </div>
 </header>
 
+<!--
 <div class="the-line">
         <svg
           viewbox="0 0 1082 2"
@@ -87,4 +88,6 @@
           />
         </svg>
       </div>
+-->
+
   </div>
