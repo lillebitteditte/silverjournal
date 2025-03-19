@@ -65,9 +65,9 @@ Template Name: homepage-silverjournal
     <div class="grid-container">
       <div class="grid-gallery">
         <div class="column">
-          <div class="grid-container">
+         
             <div id="dynamic-grid" class="grid-gallery"></div>
-          </div>
+         
         </div>
       </div>
     </div>
