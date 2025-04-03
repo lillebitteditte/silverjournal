@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-  <meta charset="<?php bloginfo('charset'); ?>" />
-  <meta
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
       name="description"
       content="A place for anyone interested in analog photography and art"
     />
@@ -11,83 +13,47 @@
       content="photography, silver journal, portfolio, art photography, copenhagen, denmark, analog, photo prints"
     />
     <meta name="author" content="The Silver Journal" />
-<meta name="robots" content="index, follow">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap" rel="stylesheet" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    
+    <! -- FONT -->
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
-  <title><?php wp_title(); ?></title>
-  <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
-  <div class="header-wrapper">
-<header class="header">
-  <div class="header-container">
-    <div class="burger-wrapper" onclick="toggleMenu()">
-      <div class="burger-icon">
-        <svg width="33" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect class="burger-line line1" x="0" y="0" width="25" height="3" fill="var(--white)" />
-          <rect class="burger-line line2" x="0" y="9" width="25" height="3" fill="var(--white)" />
-          <rect class="burger-line line3" x="0" y="18" width="25" height="3" fill="var(--white)" />
-        </svg>
-      </div>
-    </div>
-    <div id="menu-open" class="menu-open">
-      <a class="nav-item" href="https://thesilverjournal.com/about">about</a>
-      <a class="nav-item" href="https://thesilverjournal.com/gallery">gallery</a>
-      <a class="nav-item" href="https://thesilverjournal.com/contact">contact</a>
-    </div>
-  </div>
-  <div class="logo">
-          <a href="/">
-            <picture>
-              <img
-                src="https://thesilverjournal.com/wp-content/uploads/2025/02/logo2-e1742227692709.png"
-                class="desktop-logo"
-                alt="The Silver Journal logo - Analog photographer in Copenhagen"
-                width="731"
-                height="41"
-              />
+    <title>The Silver Journal</title>
 
-              <img
-                src="https://thesilverjournal.com/wp-content/uploads/2025/02/phonelogo2.png"
-                class="phone-logo"
-                alt="The Silver Journal logo - Analog photographer in Copenhagen"
-                width="254"
-                height="49"
-              />
-            </picture>
-          </a>
-        </div>
-</header>
-
-<!--
-<div class="the-line">
-        <svg
-          viewbox="0 0 1082 2"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="line-top"
-        >
-          <line
-            x1="0"
-            y1="1"
-            x2="900"
-            y2="1"
-            stroke="#FAFAFA"
-            stroke-width="1"
-          />
-        </svg>
-      </div>
--->
-
-  </div>
+  </head>
+  
+  
+  <body>
+   
+     <div class="gallery-container">
+        <header class="header">
+            <div class="header-title">
+              
+              <a class="home-link" href="https://silver-3-0.glitch.me/index.html">
+              <h1>
+                 the silver journal</h1> </a>
+              
+             
+          </div>
+          
+           <a class="h2-link" href="https://silver-3-0.glitch.me/about.html">
+              <h2 class="h2-front">
+                film photography <span id="h2-name">x Mathias Andreasen</span>
+              </h2>
+              </a>
+          
+            <div class="header-icons">
+              <a href="https://silver-3-0.glitch.me/gallery.html">
+                <img class="gallery-icon" src="https://cdn.glitch.global/6cbb6aff-ccc4-4be2-8b14-23c93a271f82/photo.svg?v=1743401913362" alt="Gallery icon"> </a>
+              
+              <a href="https://silver-3-0.glitch.me/contact.html"> 
+                <img class="contact-icon" src="https://cdn.glitch.global/6cbb6aff-ccc4-4be2-8b14-23c93a271f82/send.svg?v=1743401920954" alt="Email icon"> </a>
+               
+              <a href="https://silver-3-0.glitch.me/about.html">
+              <img id="logo-icon" src="https://cdn.glitch.global/224799c8-c3e4-421e-8bd5-820beb463522/Hvid%20med%20rund%20kant.png?v=1743598056783" alt="Fire icon">
+              </a>
+            </div>
+        </header>
