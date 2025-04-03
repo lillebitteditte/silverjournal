@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
   <head>
-    <meta charset="utf-8" />
+  <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
@@ -13,6 +13,10 @@
       content="photography, silver journal, portfolio, art photography, copenhagen, denmark, analog, photo prints"
     />
     <meta name="author" content="The Silver Journal" />
+
+    <?php wp_head(); ?> 
+
+<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
     
     
     <! -- FONT -->
