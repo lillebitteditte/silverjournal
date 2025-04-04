@@ -150,6 +150,10 @@ h1 {
   
 }
 
+.header-icons:hover {
+  scale: 1.01;
+}
+
 .gallery-icon {
  margin-top: 1px;
     padding: 1px;
@@ -523,7 +527,7 @@ h1 {
 /* Desktops */
 @media (min-width: 1024px) {
   .header, .gallery {
-    width: 85%;
+    width: 80%;
   }
   
   .footer-info {
@@ -537,7 +541,8 @@ h1 {
     }
     
     .gallery {
-      height: 100%;
+      width: 85%;
+      
       display: flex;
       align-items: center;
       justify-content: center;
