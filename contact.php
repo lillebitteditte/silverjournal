@@ -5,17 +5,6 @@ Template Name: contact-silverjournal
 ?>
 
 <?php get_header(); ?>
-
-<svg
-      width="1062"
-      height="2"
-      viewbox="0 0 1082 2"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="line-top"
-    >
-      <line x1="1062" y1="1" y2="1" stroke="#FAFAFA" stroke-width="1" />
-    </svg>
     
     <div class="content-wrapper">
         <div class="left-wrapper">

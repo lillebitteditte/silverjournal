@@ -42,21 +42,21 @@
              
           </div>
           
-           <a class="h2-link" href="https://silver-3-0.glitch.me/about.html">
+           <a class="h2-link" href="https://thesilverjournal.com/about/">
               <h2 class="h2-front">
                 film photography <span id="h2-name">x Mathias Andreasen</span>
               </h2>
               </a>
           
             <div class="header-icons">
-              <a href="https://silver-3-0.glitch.me/gallery.html">
+              <a href="https://thesilverjournal.com/gallery/">
                 <img class="gallery-icon" src="https://cdn.glitch.global/6cbb6aff-ccc4-4be2-8b14-23c93a271f82/photo.svg?v=1743401913362" alt="Gallery icon"> </a>
               
-              <a href="https://silver-3-0.glitch.me/contact.html"> 
+              <a href="https://thesilverjournal.com/contact/"> 
                 <img class="contact-icon" src="https://cdn.glitch.global/6cbb6aff-ccc4-4be2-8b14-23c93a271f82/send.svg?v=1743401920954" alt="Email icon"> </a>
                
-              <a href="https://silver-3-0.glitch.me/about.html">
-              <img id="logo-icon" src="https://cdn.glitch.global/224799c8-c3e4-421e-8bd5-820beb463522/Hvid%20med%20rund%20kant.png?v=1743598056783" alt="Fire icon">
+              <a href="https://thesilverjournal.com/about/">
+              <img class="logo-icon" id="logo-icon" src="https://cdn.glitch.global/224799c8-c3e4-421e-8bd5-820beb463522/Hvid%20med%20rund%20kant.png?v=1743598056783" alt="Fire icon">
               </a>
             </div>
         </header>
