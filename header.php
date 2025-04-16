@@ -56,7 +56,7 @@
                 <img class="contact-icon" src="https://cdn.glitch.global/6cbb6aff-ccc4-4be2-8b14-23c93a271f82/send.svg?v=1743401920954" alt="Email icon"> </a>
                
               <a href="https://thesilverjournal.com/about/">
-              <img id="logo-icon" src="https://cdn.glitch.global/224799c8-c3e4-421e-8bd5-820beb463522/Hvid%20med%20rund%20kant.png?v=1743598056783" alt="Fire icon">
+              <img class="logo-icon" id="logo-icon" src="https://cdn.glitch.global/224799c8-c3e4-421e-8bd5-820beb463522/Hvid%20med%20rund%20kant.png?v=1743598056783" alt="Fire icon">
               </a>
             </div>
         </header>
