@@ -1,129 +1,120 @@
-
-// MENU
-
-function toggleMenu() {
-  const menu = document.getElementById("menu-open");
-  const burgerWrapper = document.querySelector(".burger-wrapper");
-
-  menu.classList.toggle("active");
-  burgerWrapper.classList.toggle("active");
+const {href, protocol} = window.location
+if (protocol === 'http:') {
+  window.location.replace(`https${href.slice(4)}`)
 }
 
-// Hide menu when a menu item is clicked
-document.querySelectorAll(".nav-item").forEach((item) => {
-  item.addEventListener("click", () => {
-    const menu = document.getElementById("menu-open");
-    const burgerWrapper = document.querySelector(".burger-wrapper");
+// NEW FRONT PAGE 
 
-    menu.classList.remove("active");
-    burgerWrapper.classList.remove("active");
-  });
-});
-
-// KARRUSEL
-
-document.addEventListener("DOMContentLoaded", () => {
-  const arrowLeft = document.querySelector(".arrow-left");
-  const arrowRight = document.querySelector(".arrow-right");
- 
-  const heroPictures = [
-    {
-      title: "1",
-      info: "the english garden",
-      description: "munich (2021)",
-      image:
-        "https://thesilverjournal.com/wp-content/uploads/2025/03/the_english_garden-scaled.jpg",
-    },
-    {
-      title: "2",
-      info: "",
-      description: "",
-      image:
-        "https://thesilverjournal.com/wp-content/uploads/2025/03/aboutHero-scaled-e1742292362152.jpg",
-    },
-    {
-      title: "3",
-      info: "eisbach surfer",
-      description: "munich (2021)",
-      image:
-        "https://thesilverjournal.com/wp-content/uploads/2025/03/Eisbach-surfer_Munich-scaled.jpg",
-    },
-  ];
-  
- const carouselContainer = document.getElementById("carousel-container");
-
-  let currentIndex = 0;
-  const infoContainer = document.createElement("div");
-  infoContainer.classList.add("carousel-info");
-  carouselContainer.parentNode.insertBefore(infoContainer,     carouselContainer.nextSibling);
-
-  
-  // Update carousel and info
-  function updateCarousel() {
-    let translateValue;
+// Fixed gallery.js script
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.gallery-slide');
+    const dots = document.querySelectorAll('.gallery-dot');
+    let currentSlide = 0;
     
-    if (currentIndex === heroPictures.length - 1) {
-     
-      translateValue = -(currentIndex * 62) + "%"; 
-    } else {
-      
-      translateValue = -(currentIndex * 75) + "%";
+    // Get the gallery container for touch events
+    const galleryElement = document.querySelector('.gallery');
+    
+    // Swipe functionality variables
+    let startX = 0;
+    let endX = 0;
+    let isSwiping = false;
+
+    // Function to change slide
+    function changeSlide(newIndex) {
+        // Remove active class from current slide and dot
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+        
+        // Calculate new slide index (with wrap-around)
+        currentSlide = (newIndex + slides.length) % slides.length;
+        
+        // Add active class to new slide and dot
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
     }
 
-    carouselContainer.style.transform = `translateX(${translateValue})`;
-    
-      // Update info and counter
-    const currentPicture = heroPictures[currentIndex];
-    infoContainer.innerHTML = `
-        <div class="carousel-counter-info">
-            
-            <span class="counter">${currentIndex + 1}/${heroPictures.length}</span>
-            <span class="image-info">${currentPicture.info}</span>
-            <button class="plus-button">+</button>
-            
-        </div>
-    `;
-    
-        // Add event listener for the plus button
-    const plusButton = infoContainer.querySelector(".plus-button");
-    plusButton.addEventListener("click", () => showCarouselModal(currentPicture));
+    // Touch start event
+    galleryElement.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isSwiping = true;
+        e.preventDefault(); // Prevent default touch behavior
+    }, { passive: false });
 
+    // Touch move event
+    galleryElement.addEventListener('touchmove', (e) => {
+        if (!isSwiping) return;
+        endX = e.touches[0].clientX;
+        e.preventDefault(); // Prevent default touch behavior
+    }, { passive: false });
 
-    // Handle arrow visibility
-    arrowLeft.style.display = currentIndex === 0 ? "none" : "block";
-    arrowRight.style.display = currentIndex === heroPictures.length - 1 ? "none" : "block";
-  }
-
-  function populateCarousel() {
-    carouselContainer.innerHTML = "";
-    heroPictures.forEach((picture) => {
-      const imgElement = document.createElement("img");
-      imgElement.src = picture.image;
-      imgElement.alt = picture.title;
-      imgElement.classList.add("carousel-item");
-      carouselContainer.appendChild(imgElement);
+    // Touch end event
+    galleryElement.addEventListener('touchend', () => {
+        if (!isSwiping) return;
+        
+        const swipeDiff = endX - startX;
+        
+        // Check if swipe was significant enough
+        if (Math.abs(swipeDiff) > 50) {
+            // Negative diff means swipe left (next slide)
+            // Positive diff means swipe right (previous slide)
+            changeSlide(currentSlide + (swipeDiff > 0 ? -1 : 1));
+        }
+        
+        isSwiping = false;
     });
-  }
 
-  // Left arrow event
-  arrowLeft.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    }
-  });
+    // Click event for dot navigation
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const slideIndex = parseInt(dot.getAttribute('data-slide'));
+            changeSlide(slideIndex);
+        });
+    });
 
-  // Right arrow event
-  arrowRight.addEventListener("click", () => {
-    if (currentIndex < heroPictures.length - 1) {
-      currentIndex++;
-      updateCarousel();
-    }
-  });
+    // Add keyboard navigation (optional)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            changeSlide(currentSlide - 1);
+        } else if (e.key === 'ArrowRight') {
+            changeSlide(currentSlide + 1);
+        }
+    });
 
-  populateCarousel();
-  updateCarousel();
+    // Mouse swipe simulation (optional, for desktop users)
+    let mouseDown = false;
+    let mouseStartX = 0;
+    let mouseEndX = 0;
 
+    galleryElement.addEventListener('mousedown', (e) => {
+        mouseDown = true;
+        mouseStartX = e.clientX;
+        // Prevent default to stop text selection during swipe
+        e.preventDefault();
+    });
+
+    galleryElement.addEventListener('mousemove', (e) => {
+        if (!mouseDown) return;
+        mouseEndX = e.clientX;
+        e.preventDefault();
+    });
+
+    galleryElement.addEventListener('mouseup', () => {
+        if (!mouseDown) return;
+        
+        const swipeDiff = mouseEndX - mouseStartX;
+        
+        if (Math.abs(swipeDiff) > 50) {
+            changeSlide(currentSlide + (swipeDiff > 0 ? -1 : 1));
+        }
+        
+        mouseDown = false;
+    });
+
+    // If mouse leaves the gallery, cancel the swipe
+    galleryElement.addEventListener('mouseleave', () => {
+        mouseDown = false;
+    });
+});
 
 
 // -------------------- MODAL FOR CAROUSEL ---------------------
@@ -165,121 +156,10 @@ carouselModalClose.addEventListener("click", () => {
     document.documentElement.classList.remove("no-scroll");
 });
 
-// Clear existing images and create new ones
-function populateCarousel() {
-    carouselContainer.innerHTML = ''; // Clear existing images
-    heroPictures.forEach((picture) => {
-        const imgElement = document.createElement("img");
-        imgElement.src = picture.image;
-        imgElement.alt = picture.title;
-        imgElement.classList.add("carousel-item"); 
-        carouselContainer.appendChild(imgElement);
-    });
-}
-
-// Update carousel and info display
-function updateCarousel() {
-    let translateValue = -(currentIndex * 75) + "%";
-    if (currentIndex === heroPictures.length - 1) {
-        translateValue = -(currentIndex * 62) + "%";
-    }
-
-    carouselContainer.style.transform = `translateX(${translateValue})`;
-
-    const currentPicture = heroPictures[currentIndex];
-
-    // Move the existing arrows into the infoContainer
-    infoContainer.innerHTML = ""; // Clear previous content
-    infoContainer.appendChild(arrowLeft); // Move left arrow inside
-    
-    // Add counter
-    const counter = document.createElement("span");
-    counter.classList.add("counter");
-    counter.textContent = `${currentIndex + 1}/${heroPictures.length}`;
-    infoContainer.appendChild(counter);
-
-    // Add image info only if it's NOT the second image
-    if (currentIndex !== 1) {
-        const imageInfo = document.createElement("span");
-        imageInfo.classList.add("image-info");
-        imageInfo.textContent = currentPicture.info;
-        infoContainer.appendChild(imageInfo);
-
-        // Add plus button
-        const plusButton = document.createElement("button");
-        plusButton.classList.add("plus-button");
-        plusButton.textContent = "+";
-        plusButton.addEventListener("click", () => showCarouselModal(currentPicture));
-        infoContainer.appendChild(plusButton);
-    }
-
-    // infoContainer.appendChild(arrowRight); // Move right arrow inside
-
-    // Show/hide arrows based on position
-    arrowLeft.style.display = currentIndex === 0 ? "none" : "block";
-    arrowRight.style.display = currentIndex === heroPictures.length - 1 ? "none" : "block";
-}
 
 
-// Ensure the event listeners are added after the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const arrowLeft = document.querySelector(".arrow-left");
-    const arrowRight = document.querySelector(".arrow-right");
-
-    // Event listener for left arrow
-    arrowLeft.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + heroPictures.length) % heroPictures.length;
-        updateCarousel();
-    });
-
-    // Event listener for right arrow
-    arrowRight.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % heroPictures.length;
-        updateCarousel();
-    });
-
-    // Initial population and display
-    populateCarousel();
-    updateCarousel();
-});
 
 
-/*---------- SWIPE FUNCTION FOR MOBILE---------- */
-
-let startX = 0;
-let isSwiping = false;
-
-// Touch start
-carouselContainer.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-  isSwiping = true;
-});
-
-// Touch move
-carouselContainer.addEventListener("touchmove", (e) => {
-  if (!isSwiping) return;
-  const currentX = e.touches[0].clientX;
-  const deltaX = startX - currentX;
-
-  if (deltaX > 30) {
-    // Swipe left
-    currentIndex = Math.min(currentIndex + 1, heroPictures.length - 1);
-    updateCarousel();
-    isSwiping = false;
-  } else if (deltaX < -30) {
-    // Swipe right
-    currentIndex = Math.max(currentIndex - 1, 0);
-    updateCarousel();
-    isSwiping = false;
-  }
-});
-
-// Touch end
-carouselContainer.addEventListener("touchend", () => {
-  isSwiping = false;
-});
-  
-  });
 
 
 // FOOTER EMAIL COPY
