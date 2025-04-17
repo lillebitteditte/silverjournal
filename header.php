@@ -35,7 +35,7 @@
         <header class="header">
             <div class="header-title">
               
-              <a class="home-link" href="https://silver-3-0.glitch.me/index.html">
+              <a class="home-link" href="https://thesilverjournal.com/">
               <h1>
                  the silver journal</h1> </a>
               
@@ -50,13 +50,13 @@
           
             <div class="header-icons">
               <a href="https://thesilverjournal.com/gallery/">
-                <img class="gallery-icon" src="https://cdn.glitch.global/6cbb6aff-ccc4-4be2-8b14-23c93a271f82/photo.svg?v=1743401913362" alt="Gallery icon"> </a>
+                <img class="gallery-icon" src="https://thesilverjournal.com/wp-content/uploads/2025/04/photo.svg" alt="Gallery icon"> </a>
               
               <a href="https://thesilverjournal.com/contact/"> 
-                <img class="contact-icon" src="https://cdn.glitch.global/6cbb6aff-ccc4-4be2-8b14-23c93a271f82/send.svg?v=1743401920954" alt="Email icon"> </a>
+                <img class="contact-icon" src="https://thesilverjournal.com/wp-content/uploads/2025/04/send.svg" alt="Email icon"> </a>
                
               <a href="https://thesilverjournal.com/about/">
-              <img class="logo-icon" id="logo-icon" src="https://cdn.glitch.global/224799c8-c3e4-421e-8bd5-820beb463522/Hvid%20med%20rund%20kant.png?v=1743598056783" alt="Fire icon">
+              <img class="logo-icon" id="logo-icon" src="https://thesilverjournal.com/wp-content/uploads/2025/04/logo.png" alt="Fire icon">
               </a>
             </div>
         </header>
