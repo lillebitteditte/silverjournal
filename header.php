@@ -31,7 +31,7 @@
   
   
   <body>
-  <div class="gallery-container">
+  
         <header class="header">
             <div class="header-title">
               
