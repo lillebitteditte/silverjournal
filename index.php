@@ -8,7 +8,7 @@ Template Name: homepage-silverjournal
 
 
 <main> 
-<div class="gallery-container">
+
 <div class="swipe-indicator">
             <img src="https://cdn.glitch.global/ece17432-589a-42ec-b065-50b7c80bc0db/swipe-left.svg?v=1743497295684" alt="Swipe finger">     
         </div>
@@ -67,7 +67,7 @@ Template Name: homepage-silverjournal
       </div>
     </div>
 
-    </div>
+    
 
 </main>
 
