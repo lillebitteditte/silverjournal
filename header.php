@@ -53,7 +53,7 @@
                 <img class="gallery-icon" src="https://thesilverjournal.com/wp-content/uploads/2025/04/photo.svg" alt="Gallery icon"> </a>
                
               <a href="https://thesilverjournal.com/about/">
-              <img class="logo-icon" id="logo-icon" src="https://thesilverjournal.com/wp-content/uploads/2025/04/HVIDNOLINE-.png" alt="Fire icon">
+              <img class="logo-icon" id="logo-icon" src="https://thesilverjournal.com/wp-content/uploads/2025/04/hvidnolinesmall.png" alt="Fire icon">
               </a>
             </div>
         </header>
