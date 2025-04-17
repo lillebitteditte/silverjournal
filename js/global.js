@@ -7,6 +7,7 @@ if (protocol === 'http:') {
 
 // Fixed gallery.js script
 document.addEventListener('DOMContentLoaded', () => {
+  console.log("Gallery script loaded");
     const slides = document.querySelectorAll('.gallery-slide');
     const dots = document.querySelectorAll('.gallery-dot');
     let currentSlide = 0;
