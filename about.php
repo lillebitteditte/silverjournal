@@ -17,9 +17,15 @@ Template Name: about-silverjournal
    
    <section class="top-section">
      
+      
+     
     <div class="content-wrapper">
+      
+    
       <div class="text-column">
-        
+         <h3>
+        purpose
+      </h3>
         
         <p class="about-text">
           the silver journal exists to a) publish a selection of photographic projects by danish photographer and video journalist Mathias Andreasen b) explore analog film photography through a dedicated YouTube-channel c) preserve and publish a passionately salvaged archive of pictures rescued from abandonment.
@@ -49,7 +55,7 @@ Template Name: about-silverjournal
 <path d="M294.5 83.5C211 101.5 54.3 170.6 3.5 231M50.5 3.5C129.167 78.5 262 243 270 300.5" stroke="#B11D1D" stroke-width="8" style="filter: url(#displacementFilter); border-radius: 14px;"/>
 </svg>
           <div class="about-image">
-            <img src="https://cdn.glitch.global/35781e8c-f669-4ac2-bb8c-2980775445b7/bil.png?v=1744627385610" alt="The Silver Journal">
+            <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/1a-–-stor.jpeg" alt="The Silver Journal">
           </div>
             </div>
           
@@ -62,12 +68,14 @@ Template Name: about-silverjournal
    
    
    <section class="bottom-section">
-     
-       <div class="content-wrapper">
+      
+       <div class="content-wrapper-bottom">
+         
+        
          
            <div class="image-wrapper">
-          <div class="about-image">
-            <img src="https://cdn.glitch.global/224799c8-c3e4-421e-8bd5-820beb463522/IMG_1180.jpg?v=1744791586597" alt="The Silver Journal">
+          <div class="mathias-about-image">
+            <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/mathiasAbout.jpg" alt="The Silver Journal">
           </div>
              
              <svg class="circle" width="127" height="108" viewbox="0 0 227 208" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,6 +87,9 @@ Template Name: about-silverjournal
          
          
       <div class="text-column">
+         <h3>
+        mathias
+      </h3>
      <p class="about-text">
           I am a documentary photographer at heart. I photograph to make compelling pictures that captures moments of lives lived as they appeared in a fraction of a second.
           

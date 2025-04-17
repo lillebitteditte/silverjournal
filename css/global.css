@@ -155,13 +155,10 @@ h1 {
     padding: 1px;
 }
 
-.gallery-icon:hover {
+.logo-icon:hover, .gallery-icon:hover, .contact-icon:hover {
   scale: 1.01;
 }
 
-.contact-icon:hover {
-  scale: 1.01;
-}
 
 .gallery-icon, .contact-icon {
   filter: invert(1);
