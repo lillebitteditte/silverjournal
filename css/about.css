@@ -4,6 +4,10 @@
   --spacing: clamp(2rem, 5vw, 7rem);
 }
 
+.header {
+  height: 13%;
+}
+
 body,
 html {
   height: 100%;
