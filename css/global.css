@@ -525,7 +525,7 @@ h1 {
 /* Tablets */
 @media (min-width: 768px) and (max-width: 1023px) {
   .header, .gallery {
-    width: 90%;
+    width: 80%;
   }
   
   .footer-info {
@@ -536,7 +536,7 @@ h1 {
 /* Desktops */
 @media (min-width: 1024px) {
   .header, .gallery {
-    width: 80%;
+    width: 85%;
   }
   
   .footer-info {
@@ -545,12 +545,12 @@ h1 {
   
   /* Large desktops */
   @media (min-width: 1500px) {
-    .gallery-container {
-      height: calc(100vh - 100px); /* Full height minus header/footer space */
+    .header {
+      width: 90%;
     }
     
     .gallery {
-      width: 85%;
+      width: 90%;
       
       display: flex;
       align-items: center;
