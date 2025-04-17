@@ -67,7 +67,7 @@ Template Name: homepage-silverjournal
       </div>
     </div>
 
-    
+    </div>
 
 </main>
 
