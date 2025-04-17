@@ -99,7 +99,7 @@ h1,
 
 h1 {
   font-family: Oswald, sans-serif;
-  font-size: 3rem;
+  font-size: 4rem;
   color: var(--pink);
   font-weight: 400;
    animation: fadeIn 1s ease forwards;
@@ -111,7 +111,7 @@ h1 {
 }
 
 .h2-front {
-  font-size: 1rem;
+  font-size: 0.75rem;
      color: var(--blackbackground);
      background-color: white;
      /* border: 1px solid var(--white); */
@@ -180,7 +180,7 @@ h1 {
 .header-title {
  grid-column: 1 / 2; /* First column */
   grid-row: 1 / 2; 
- 
+  height: 5rem;
 }
 
 .gallery {
