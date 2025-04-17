@@ -64,9 +64,10 @@ img.header-image {
   transition: transform 0.3s ease;
 }
 
-section.top-section {
-  padding: 0rem 0rem 0rem 1rem;
-}
+  section.top-section {
+    padding: 0rem 0rem 2rem 1rem;
+  }
+
 
 section.bottom-section {
   padding: 0rem 0rem 0rem 1rem;
