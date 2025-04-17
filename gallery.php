@@ -22,7 +22,7 @@ Template Name: gallery-silverjournal
             <img id="modal-image" class="modal-content" />
         </div>
     </div>
-
+</div>
     
         
     <?php get_footer(); ?>

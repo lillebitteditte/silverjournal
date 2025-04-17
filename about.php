@@ -121,6 +121,7 @@ Template Name: about-silverjournal
             </div>
    
    </div>
+</div>
     
     </main>
 
