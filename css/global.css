@@ -49,17 +49,18 @@ body {
    display: flex; 
   flex-direction: column; 
   
-  align-items: center;
+ /*  align-items: center; */
 }
 
 .header-wrapper,
 .footer {
-  width: 100%;
-  height: 4%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--blackbackground);
+     width: 100%;
+    /* height: 4%; */
+    /* display: flex
+; 
+    flex-direction: column;
+    align-items: center; */
+    background-color: var(--blackbackground);
 }
 
 
@@ -81,12 +82,9 @@ body {
   align-items: center;
   padding: 0px 0px 4px 0px;
   background-color: var(--blackbackground);
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
-
-
-
 
 /* FADE IN */
 
@@ -186,7 +184,7 @@ h1 {
 
 .gallery {
   position: relative;
-  width: 80%;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto;
   animation: fadeInSmooth 1.5s ease-in-out forwards;
@@ -526,7 +524,7 @@ h1 {
 /* Tablets */
 @media (min-width: 768px) and (max-width: 1023px) {
   .header, .gallery {
-    width: 80%;
+    width: 90%;
   }
   
   .footer-info {
@@ -536,24 +534,24 @@ h1 {
 
 /* Desktops */
 @media (min-width: 1024px) {
-  .header, .gallery {
+  .header {
     width: 85%;
-    height: 17%;
   }
-  
+
+  .gallery {
+    width: 100%;
+  }
+
   .footer-info {
     gap: 50px;
   }
   
   /* Large desktops */
   @media (min-width: 1500px) {
-    .header {
-      width: 90%;
-    }
+   
     
     .gallery {
-      width: 90%;
-      
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;

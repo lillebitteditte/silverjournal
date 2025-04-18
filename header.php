@@ -32,6 +32,7 @@
   
   <body>
   <div class="gallery-container">
+    <div class="header-wrapper">
         <header class="header">
             <div class="header-title">
               
@@ -57,3 +58,4 @@
               </a>
             </div>
         </header>
+        </div>
