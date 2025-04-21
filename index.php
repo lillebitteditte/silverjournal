@@ -4,6 +4,7 @@ Template Name: homepage-silverjournal
 */
 ?>
 
+
 <?php get_header(); ?>
 
 
@@ -14,6 +15,8 @@ Template Name: homepage-silverjournal
         </div>
 
         <div class="gallery">
+
+
             <div class="gallery-slide active">
                 <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/English-garden-no-border-scaled.jpg" alt="Gallery Image 1">
             </div>
@@ -35,7 +38,6 @@ Template Name: homepage-silverjournal
             <div class="gallery-slide">
                 <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/placerholderFriends.png" alt="Gallery Image 7">
             </div>
-           
 
             <div class="gallery-navigation">
                 <div class="gallery-dot active" data-slide="0"></div>
