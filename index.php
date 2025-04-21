@@ -32,6 +32,9 @@ Template Name: homepage-silverjournal
             <div class="gallery-slide">
                 <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/Hellerup-no-border-scaled.jpg" alt="Gallery Image 6">
             </div>
+            <div class="gallery-slide">
+                <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/placerholderFriends.png" alt="Gallery Image 7">
+            </div>
            
 
             <div class="gallery-navigation">

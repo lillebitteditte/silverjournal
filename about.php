@@ -109,9 +109,9 @@ Template Name: about-silverjournal
    
      <div class="text-bottom">
           <h2>the silver journal</h2>
-      <svg class="line" width="155" height="38" viewbox="0 0 205 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <!-- <svg class="line" width="155" height="38" viewbox="0 0 205 38" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M302.077 9.61062C197 2.50026 102 -4.50187 2.5 19.9995" stroke="#B11D1D" stroke-width="3" stroke-miterlimit="4" stroke-linecap="round" style="filter: url(#displacementFilter);"/>
-</svg>
+</svg> --> 
         
         <div class="text-end">
           <p class="about-text">

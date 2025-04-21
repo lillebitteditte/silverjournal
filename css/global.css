@@ -16,7 +16,8 @@
   background: var(--white);
 }
 
-::-webkit-scrollbar-hover {
+::-webkit-scrollbar-hover {margin-top: 2px;
+  margin-bottom: 2px;
   background: var(--darkgrey);
 }
 
@@ -418,9 +419,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 
   @media (width >=40em) {
     /* 640px - tablets */
