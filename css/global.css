@@ -182,10 +182,7 @@ h1 {
   grid-row: 1 / 2; 
   height: 5rem;
 
-  @media (width >=40em) {
-    /* 640px - tablets */
-    height: 2rem;
-  }
+ 
 } 
 
 .gallery {
@@ -504,6 +501,10 @@ h1 {
     width: 95%;
     padding: 5px 0;
     
+  }
+
+  .header-title {
+    height: 5rem;
   }
   
   .gallery {
