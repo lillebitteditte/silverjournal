@@ -181,7 +181,12 @@ h1 {
  grid-column: 1 / 2; /* First column */
   grid-row: 1 / 2; 
   height: 5rem;
-}
+
+  @media (width >=40em) {
+    /* 640px - tablets */
+    height: 2rem;
+  }
+} 
 
 .gallery {
   position: relative;
@@ -488,7 +493,11 @@ h1 {
   }
   
   .h2-front {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  #h2-X {
+    font-size: 0.6rem;
   }
   
   .header {
@@ -506,9 +515,15 @@ h1 {
     width: 15px;
     height: 15px;
   }
+
+  .footer-item {
+    font-size: 1rem;
+  }
   
   .footer-info {
     gap: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
   }
   
   /* Fix very small screens */
