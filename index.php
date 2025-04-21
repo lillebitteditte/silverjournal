@@ -3,6 +3,11 @@
 Template Name: homepage-silverjournal
 */
 ?>
+<?php
+function is_mobile_device() {
+    return preg_match('/(android|iphone|ipad|ipod|blackberry|windows phone)/i', $_SERVER['HTTP_USER_AGENT']);
+}
+?>
 
 <?php get_header(); ?>
 
@@ -14,6 +19,40 @@ Template Name: homepage-silverjournal
         </div>
 
         <div class="gallery">
+
+        <?php if (is_mobile_device()) : ?>
+        <!-- MOBILE IMAGES -->
+
+        <div class="gallery-slide active">
+            <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/img046-50-percent-bicubic-sharper-no-border.jpg" alt="Mobile Image 1">
+        </div>
+        <div class="gallery-slide">
+            <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/Ditte-Marie-no-border-scaled.jpg" alt="Mobile Image 2">
+        </div>
+        <div class="gallery-slide">
+            <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/3a.jpg" alt="Mobile Image 3">
+        </div>
+
+        <div class="gallery-slide">
+            <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/11-no-border-scaled.jpg" alt="Mobile Image 4">
+        </div>
+
+        <div class="gallery-slide">
+            <img src="https://thesilverjournal.com/wp-content/uploads/2025/03/wizards_home-scaled.jpg" alt="Mobile Image 5">
+        </div>
+
+        <div class="gallery-slide">
+            <img src="https://thesilverjournal.com/wp-content/uploads/2025/03/Frederiksberg-scaled.jpg" alt="Mobile Image 6">
+        </div>
+
+        <div class="gallery-slide">
+            <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/6a-scaled.jpg" alt="Mobile Image 7">
+        </div>
+
+
+        <?php else : ?>
+            <!-- Desktop Gallery Images -->
+
             <div class="gallery-slide active">
                 <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/English-garden-no-border-scaled.jpg" alt="Gallery Image 1">
             </div>
@@ -36,6 +75,7 @@ Template Name: homepage-silverjournal
                 <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/placerholderFriends.png" alt="Gallery Image 7">
             </div>
            
+            <?php endif; ?>
 
             <div class="gallery-navigation">
                 <div class="gallery-dot active" data-slide="0"></div>
