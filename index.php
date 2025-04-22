@@ -16,6 +16,7 @@ Template Name: homepage-silverjournal
 
         <div class="gallery">
 
+        <div class="gallery-inner">
 
             <div class="gallery-slide active">
                 <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/English-garden-no-border-scaled.jpg" alt="Gallery Image 1">
@@ -39,6 +40,8 @@ Template Name: homepage-silverjournal
                 <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/placerholderFriends.png" alt="Gallery Image 7">
             </div>
 
+            </div>
+
             <div class="gallery-navigation">
                 <div class="gallery-dot active" data-slide="0"></div>
                 <div class="gallery-dot" data-slide="1"></div>
@@ -51,11 +54,13 @@ Template Name: homepage-silverjournal
             </div>
         </div>
        
+        <div class="gallery-inner">
         <div class="gallery-mobile-images" style="display: none;">
     <img src="https://cdn.glitch.global/977d6639-74aa-4742-8855-39891de14bf9/AA035-2.JPG?v=1737119977573" alt="Mobile Image 1">
     <img src="https://cdn.glitch.global/977d6639-74aa-4742-8855-39891de14bf9/Sofie_1.jpg?v=1737120083957" alt="Mobile Image 2">
     <img src="https://cdn.glitch.me/ece17432-589a-42ec-b065-50b7c80bc0db/3a.jpg?v=1743495984435" alt="Mobile Image 3">
     <!-- Add more mobile images here -->
+</div>
 </div>
        
     <!--- MODAL FOR CAROUSEL IMAGES --->

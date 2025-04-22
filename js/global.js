@@ -1,66 +1,63 @@
 // NEW FRONT PAGE 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const slides = document.querySelectorAll('.gallery-slide');
-  const galleryImages = document.querySelectorAll('.gallery-slide img');
-  const dots = document.querySelectorAll('.gallery-dot');
   const galleryElement = document.querySelector('.gallery');
+  const galleryInner = document.querySelector('.gallery-inner');
+  const slides = document.querySelectorAll('.gallery-slide');
+  const dots = document.querySelectorAll('.gallery-dot');
   const swipeIndicator = document.querySelector('.swipe-indicator');
   let currentSlide = 0;
-  let imagesLoaded = 0;
 
-  // Add CSS dynamically
+  // Apply styles
   const style = document.createElement('style');
   style.textContent = `
-    .gallery {
-        margin: 0 auto;
+    .gallery-inner {
+      position: relative;
+      overflow: hidden;
+      height: auto;
     }
-
     .gallery-slide {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        top: 0;
-        opacity: 1;
-        transform: translateX(100%);
-        transition: transform 1s ease;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      opacity: 1;
+      transform: translateX(100%);
+      transition: transform 1s ease;
     }
-
     .gallery-slide.active {
-        display: block;
-        transform: translateX(0);
-        z-index: 1;
+      display: block;
+      transform: translateX(0);
+      z-index: 1;
     }
-
     .gallery-slide.prev {
-        transform: translateX(-100%);
-        display: block;
-        z-index: 0;
+      transform: translateX(-100%);
+      display: block;
+      z-index: 0;
     }
-
     .gallery-slide.next {
-        transform: translateX(100%);
-        display: block;
-        z-index: 0;
+      transform: translateX(100%);
+      display: block;
+      z-index: 0;
     }
-
     .gallery-slide img {
-       width: auto;
-       height: 34rem;
-       margin: 0 auto;
-    } 
+      width: auto;
+      height: 34rem;
+      margin: 0 auto;
+    }
   `;
   document.head.appendChild(style);
 
+  // Height logic
   function setGalleryHeight() {
     const activeSlide = document.querySelector('.gallery-slide.active');
     if (activeSlide) {
       const activeImg = activeSlide.querySelector('img');
       if (activeImg.complete) {
-        galleryElement.style.height = activeImg.offsetHeight + 'px';
+        galleryInner.style.height = activeImg.offsetHeight + 'px';
       } else {
         activeImg.onload = () => {
-          galleryElement.style.height = activeImg.offsetHeight + 'px';
+          galleryInner.style.height = activeImg.offsetHeight + 'px';
         };
       }
     }
@@ -68,17 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setupSlides() {
     slides.forEach((slide, index) => {
+      slide.classList.remove('active', 'prev', 'next');
       if (index === currentSlide) {
         slide.classList.add('active');
-        slide.classList.remove('prev', 'next');
       } else if (index === (currentSlide + 1) % slides.length) {
         slide.classList.add('next');
-        slide.classList.remove('active', 'prev');
       } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
         slide.classList.add('prev');
-        slide.classList.remove('active', 'next');
-      } else {
-        slide.classList.remove('active', 'prev', 'next');
       }
     });
     setGalleryHeight();
@@ -86,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function changeSlide(newIndex) {
     const direction = newIndex > currentSlide ? 1 : -1;
-
     if (Math.abs(newIndex - currentSlide) > 1) {
       if (direction > 0 && newIndex < currentSlide) {
         newIndex = currentSlide + 1;
@@ -95,10 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    dots[currentSlide].classList.remove('active');
+    dots[currentSlide]?.classList.remove('active');
     currentSlide = (newIndex + slides.length) % slides.length;
-    dots[currentSlide].classList.add('active');
-
+    dots[currentSlide]?.classList.add('active');
     setupSlides();
   }
 
@@ -109,17 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Touch and mouse swipe
+  // Swipe handling
   let startX = 0, endX = 0, isSwiping = false;
-  let mouseDown = false, mouseStartX = 0, mouseEndX = 0;
 
-  galleryElement.addEventListener('touchstart', (e) => {
+  galleryElement.addEventListener('touchstart', e => {
     hideSwipeIndicatorPermanently();
     startX = e.touches[0].clientX;
     isSwiping = true;
   }, { passive: true });
 
-  galleryElement.addEventListener('touchmove', (e) => {
+  galleryElement.addEventListener('touchmove', e => {
     if (!isSwiping) return;
     endX = e.touches[0].clientX;
   }, { passive: true });
@@ -133,14 +123,17 @@ document.addEventListener('DOMContentLoaded', () => {
     isSwiping = false;
   });
 
-  galleryElement.addEventListener('mousedown', (e) => {
+  // Mouse drag for desktop
+  let mouseDown = false, mouseStartX = 0, mouseEndX = 0;
+
+  galleryElement.addEventListener('mousedown', e => {
     hideSwipeIndicatorPermanently();
     mouseDown = true;
     mouseStartX = e.clientX;
     e.preventDefault();
   });
 
-  galleryElement.addEventListener('mousemove', (e) => {
+  galleryElement.addEventListener('mousemove', e => {
     if (!mouseDown) return;
     mouseEndX = e.clientX;
   });
@@ -158,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mouseDown = false;
   });
 
-  // Dots and keys
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       hideSwipeIndicatorPermanently();
@@ -167,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft') {
       hideSwipeIndicatorPermanently();
       changeSlide(currentSlide - 1);
@@ -177,27 +169,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // On window load
   window.addEventListener('resize', setGalleryHeight);
   window.addEventListener('load', setGalleryHeight);
 
-  // Track image loading
+  // Image preload check before animating
+  const galleryImages = document.querySelectorAll('.gallery-slide img');
+  let imagesLoaded = 0;
+
   function checkAllImagesLoaded() {
     imagesLoaded++;
     if (imagesLoaded === galleryImages.length) {
-      setupSlides();
-
-      // Trigger animations
       document.querySelector('h1').style.animation = 'fadeIn 1s ease forwards';
       setTimeout(() => {
-        galleryElement.style.animation = 'fadeIn 1s ease forwards';
+        document.querySelector('.gallery').style.animation = 'fadeIn 1s ease forwards';
       }, 1000);
       setTimeout(() => {
         document.querySelector('.gallery-navigation').style.animation = 'fadeIn 1s ease forwards';
       }, 1500);
       setTimeout(() => {
-        if (swipeIndicator && sessionStorage.getItem('swipeIndicatorShown') !== 'true') {
-          swipeIndicator.style.animation = 'fadeInSwipe 4s forwards';
-        }
+        document.querySelector('.swipe-indicator').style.animation = 'fadeInSwipe 4s forwards';
       }, 1500);
     }
   }
@@ -210,11 +201,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // On page load, hide swipe indicator if needed
+  // Hide swipe indicator if already shown
   if (sessionStorage.getItem('swipeIndicatorShown') === 'true' && swipeIndicator) {
     swipeIndicator.style.opacity = '0';
   }
 
+  // Initialize
+  setupSlides();
 
 
   const isMobile = window.innerWidth <= 768;
