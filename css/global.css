@@ -109,7 +109,7 @@ h1 {
 }
 
 .h2-front {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: var(--blackbackground);
   background-color: white;
   font-weight: 300;
@@ -443,7 +443,7 @@ h1 {
   }
   
   .h2-front {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   
   .header-title {
@@ -546,5 +546,23 @@ h1 {
   
    .header {
     padding: 0px 200px 4px 200px;
+  }
+}
+
+/* Larger desktops (>= 1620px) */
+@media (width >= 1820px) {
+ 
+  
+  .header {
+   padding: 0px 300px 4px 300px;
+ }
+}
+
+/* Larger desktops (>= 1820px) */
+@media (width >= 1820px) {
+ 
+  
+   .header {
+    padding: 0px 441px 4px 441px;
   }
 }

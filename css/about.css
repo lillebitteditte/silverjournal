@@ -200,7 +200,7 @@ section.bottom-section {
 
 @media (min-width: 1024px) { 
 .about-page {
-    padding: 0 5rem 4rem 4rem;
+    padding: 1rem 5rem 4rem 4rem;
     
   }
 }
@@ -208,7 +208,7 @@ section.bottom-section {
 
 @media (min-width: 1055px) { 
 .about-page {
-    padding: 0 8rem 4rem 7rem;
+    padding: 1rem 8rem 4rem 7rem;
     
   }
 }
@@ -216,14 +216,14 @@ section.bottom-section {
 
 @media (min-width: 1200px) { 
 .about-page {
-    padding: 0 9rem 4rem 7.5rem;
+    padding: 1rem 9rem 4rem 7.5rem;
     
   }
 }
 
 @media (min-width: 1400px) { 
 .about-page {
-    padding: 0 19rem 4rem 18rem;
+    padding: 1rem 19rem 4rem 18rem;
     
   }
 }
@@ -238,6 +238,20 @@ section.bottom-section {
 @media (min-width: 1620px) {
   .about-page {
     padding: 0 12rem 4rem 11rem;
+    
+  }
+}
+
+@media (min-width: 1720px) {
+  .about-page {
+    padding: 0 14rem 4rem 13rem;
+    
+  }
+}
+
+@media (min-width: 1820px) {
+  .about-page {
+    padding: 0 16rem 4rem 15rem;
     
   }
 }

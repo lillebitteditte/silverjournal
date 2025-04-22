@@ -1,153 +1,221 @@
-const {href, protocol} = window.location
-if (protocol === 'http:') {
-  window.location.replace(`https${href.slice(4)}`)
-}
-
 // NEW FRONT PAGE 
 
-// Fixed gallery.js script
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("Gallery script loaded");
-  function setupGallery() {
-    const slides = document.querySelectorAll('.gallery-slide');
-    const dots = document.querySelectorAll('.gallery-dot');
-    let currentSlide = 0;
+  const slides = document.querySelectorAll('.gallery-slide');
+  const galleryImages = document.querySelectorAll('.gallery-slide img');
+  const dots = document.querySelectorAll('.gallery-dot');
+  const galleryElement = document.querySelector('.gallery');
+  const swipeIndicator = document.querySelector('.swipe-indicator');
+  let currentSlide = 0;
+  let imagesLoaded = 0;
 
-    function changeSlide(newIndex) {
-  slides[currentSlide]?.classList.remove('active');
-  dots[currentSlide]?.classList.remove('active');
-  currentSlide = (newIndex + slides.length) % slides.length;
-  slides[currentSlide]?.classList.add('active');
-  dots[currentSlide]?.classList.add('active');
-  
-  // Apply transforms to position slides correctly
-  slides.forEach((slide, index) => {
-    const slideOffset = index - currentSlide;
-    const galleryWidth = galleryElement.offsetWidth;
-    slide.style.transform = `translateX(${slideOffset * galleryWidth}px)`;
-  });
-}
+  // Add CSS dynamically
+  const style = document.createElement('style');
+  style.textContent = `
+    .gallery {
+        margin: 0 auto;
+    }
 
-    const galleryElement = document.querySelector('.gallery');
+    .gallery-slide {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        opacity: 1;
+        transform: translateX(100%);
+        transition: transform 1s ease;
+    }
 
-    if (!galleryElement) return;
+    .gallery-slide.active {
+        display: block;
+        transform: translateX(0);
+        z-index: 1;
+    }
 
-    // SWIPE - TOUCH
- 
-let startX = 0, endX = 0, startY = 0, endY = 0, isSwiping = false;
-let initialOffset = 0;
+    .gallery-slide.prev {
+        transform: translateX(-100%);
+        display: block;
+        z-index: 0;
+    }
 
-// Add CSS for transitions
-const styleElement = document.createElement('style');
-styleElement.textContent = `
-  .gallery-slide {
-    transition: transform 0.8s ease-out;
-    will-change: transform;
-  }
-  .gallery-slide.no-transition {
-    transition: none;
-  }
-`;
-document.head.appendChild(styleElement);
+    .gallery-slide.next {
+        transform: translateX(100%);
+        display: block;
+        z-index: 0;
+    }
 
-galleryElement.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-  startY = e.touches[0].clientY;
-  isSwiping = true;
-  
-  // Remove transition during swipe
-  slides.forEach(slide => slide.classList.add('no-transition'));
-  
-  // Store the current slide for reference
-  initialOffset = window.getComputedStyle(slides[currentSlide]).transform;
-  initialOffset = initialOffset === 'none' ? 0 : parseFloat(initialOffset.split(',')[4]);
-}, { passive: true });
+    .gallery-slide img {
+       width: auto;
+       height: 34rem;
+       margin: 0 auto;
+    } 
+  `;
+  document.head.appendChild(style);
 
-galleryElement.addEventListener('touchmove', (e) => {
-  if (!isSwiping) return;
-  endX = e.touches[0].clientX;
-  endY = e.touches[0].clientY;
-  
-  // Calculate horizontal and vertical difference
-  const diffX = endX - startX;
-  const diffY = endY - startY;
-  
-  // If horizontal swipe is more significant than vertical, prevent scrolling
-  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
-    e.preventDefault();
-    
-    // Move the current slide with finger
-    const galleryWidth = galleryElement.offsetWidth;
-    
-    // Apply transforms to create the sliding effect
-    slides.forEach((slide, index) => {
-      const slideOffset = index - currentSlide;
-      const translateX = diffX + (slideOffset * galleryWidth);
-      slide.style.transform = `translateX(${translateX}px)`;
-    });
-  }
-}, { passive: false });
-
-galleryElement.addEventListener('touchend', () => {
-  if (!isSwiping) return;
-  
-  // Add transition back for smooth animation
-  slides.forEach(slide => slide.classList.remove('no-transition'));
-  
-  const swipeDiff = endX - startX;
-  const threshold = galleryElement.offsetWidth * 0.2; // 20% of width
-  
-  if (Math.abs(swipeDiff) > threshold) {
-    // Swipe was significant enough to change slide
-    changeSlide(currentSlide + (swipeDiff > 0 ? -1 : 1));
-  } else {
-    // Swipe was not significant, reset positions
-    slides.forEach((slide, index) => {
-      const slideOffset = index - currentSlide;
-      const galleryWidth = galleryElement.offsetWidth;
-      slide.style.transform = `translateX(${slideOffset * galleryWidth}px)`;
-    });
-  }
-  
-  isSwiping = false;
-});
-
-    // DOTS
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const slideIndex = parseInt(dot.getAttribute('data-slide'));
-        changeSlide(slideIndex);
-      });
-    });
-
-    // KEYBOARD
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') changeSlide(currentSlide - 1);
-      else if (e.key === 'ArrowRight') changeSlide(currentSlide + 1);
-    });
-
-    // MOUSE SWIPE (desktop)
-    let mouseDown = false, mouseStartX = 0, mouseEndX = 0;
-    galleryElement.addEventListener('mousedown', (e) => {
-      mouseDown = true;
-      mouseStartX = e.clientX;
-    });
-    galleryElement.addEventListener('mousemove', (e) => {
-      if (!mouseDown) return;
-      mouseEndX = e.clientX;
-    });
-    galleryElement.addEventListener('mouseup', () => {
-      if (!mouseDown) return;
-      const swipeDiff = mouseEndX - mouseStartX;
-      if (Math.abs(swipeDiff) > 50) {
-        changeSlide(currentSlide + (swipeDiff > 0 ? -1 : 1));
+  function setGalleryHeight() {
+    const activeSlide = document.querySelector('.gallery-slide.active');
+    if (activeSlide) {
+      const activeImg = activeSlide.querySelector('img');
+      if (activeImg.complete) {
+        galleryElement.style.height = activeImg.offsetHeight + 'px';
+      } else {
+        activeImg.onload = () => {
+          galleryElement.style.height = activeImg.offsetHeight + 'px';
+        };
       }
-      mouseDown = false;
-    });
-    galleryElement.addEventListener('mouseleave', () => {
-      mouseDown = false;
-    });
+    }
   }
+
+  function setupSlides() {
+    slides.forEach((slide, index) => {
+      if (index === currentSlide) {
+        slide.classList.add('active');
+        slide.classList.remove('prev', 'next');
+      } else if (index === (currentSlide + 1) % slides.length) {
+        slide.classList.add('next');
+        slide.classList.remove('active', 'prev');
+      } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
+        slide.classList.add('prev');
+        slide.classList.remove('active', 'next');
+      } else {
+        slide.classList.remove('active', 'prev', 'next');
+      }
+    });
+    setGalleryHeight();
+  }
+
+  function changeSlide(newIndex) {
+    const direction = newIndex > currentSlide ? 1 : -1;
+
+    if (Math.abs(newIndex - currentSlide) > 1) {
+      if (direction > 0 && newIndex < currentSlide) {
+        newIndex = currentSlide + 1;
+      } else if (direction < 0 && newIndex > currentSlide) {
+        newIndex = currentSlide - 1;
+      }
+    }
+
+    dots[currentSlide].classList.remove('active');
+    currentSlide = (newIndex + slides.length) % slides.length;
+    dots[currentSlide].classList.add('active');
+
+    setupSlides();
+  }
+
+  function hideSwipeIndicatorPermanently() {
+    if (swipeIndicator) {
+      swipeIndicator.style.opacity = '0';
+      sessionStorage.setItem('swipeIndicatorShown', 'true');
+    }
+  }
+
+  // Touch and mouse swipe
+  let startX = 0, endX = 0, isSwiping = false;
+  let mouseDown = false, mouseStartX = 0, mouseEndX = 0;
+
+  galleryElement.addEventListener('touchstart', (e) => {
+    hideSwipeIndicatorPermanently();
+    startX = e.touches[0].clientX;
+    isSwiping = true;
+  }, { passive: true });
+
+  galleryElement.addEventListener('touchmove', (e) => {
+    if (!isSwiping) return;
+    endX = e.touches[0].clientX;
+  }, { passive: true });
+
+  galleryElement.addEventListener('touchend', () => {
+    if (!isSwiping) return;
+    const swipeDiff = endX - startX;
+    if (Math.abs(swipeDiff) > 50) {
+      changeSlide(currentSlide + (swipeDiff > 0 ? -1 : 1));
+    }
+    isSwiping = false;
+  });
+
+  galleryElement.addEventListener('mousedown', (e) => {
+    hideSwipeIndicatorPermanently();
+    mouseDown = true;
+    mouseStartX = e.clientX;
+    e.preventDefault();
+  });
+
+  galleryElement.addEventListener('mousemove', (e) => {
+    if (!mouseDown) return;
+    mouseEndX = e.clientX;
+  });
+
+  galleryElement.addEventListener('mouseup', () => {
+    if (!mouseDown) return;
+    const swipeDiff = mouseEndX - mouseStartX;
+    if (Math.abs(swipeDiff) > 50) {
+      changeSlide(currentSlide + (swipeDiff > 0 ? -1 : 1));
+    }
+    mouseDown = false;
+  });
+
+  galleryElement.addEventListener('mouseleave', () => {
+    mouseDown = false;
+  });
+
+  // Dots and keys
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      hideSwipeIndicatorPermanently();
+      const slideIndex = parseInt(dot.getAttribute('data-slide'));
+      changeSlide(slideIndex);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      hideSwipeIndicatorPermanently();
+      changeSlide(currentSlide - 1);
+    } else if (e.key === 'ArrowRight') {
+      hideSwipeIndicatorPermanently();
+      changeSlide(currentSlide + 1);
+    }
+  });
+
+  window.addEventListener('resize', setGalleryHeight);
+  window.addEventListener('load', setGalleryHeight);
+
+  // Track image loading
+  function checkAllImagesLoaded() {
+    imagesLoaded++;
+    if (imagesLoaded === galleryImages.length) {
+      setupSlides();
+
+      // Trigger animations
+      document.querySelector('h1').style.animation = 'fadeIn 1s ease forwards';
+      setTimeout(() => {
+        galleryElement.style.animation = 'fadeIn 1s ease forwards';
+      }, 1000);
+      setTimeout(() => {
+        document.querySelector('.gallery-navigation').style.animation = 'fadeIn 1s ease forwards';
+      }, 1500);
+      setTimeout(() => {
+        if (swipeIndicator && sessionStorage.getItem('swipeIndicatorShown') !== 'true') {
+          swipeIndicator.style.animation = 'fadeInSwipe 4s forwards';
+        }
+      }, 1500);
+    }
+  }
+
+  galleryImages.forEach(img => {
+    if (img.complete) {
+      checkAllImagesLoaded();
+    } else {
+      img.addEventListener('load', checkAllImagesLoaded);
+    }
+  });
+
+  // On page load, hide swipe indicator if needed
+  if (sessionStorage.getItem('swipeIndicatorShown') === 'true' && swipeIndicator) {
+    swipeIndicator.style.opacity = '0';
+  }
+
+
 
   const isMobile = window.innerWidth <= 768;
 
