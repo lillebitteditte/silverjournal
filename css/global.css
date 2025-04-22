@@ -229,7 +229,7 @@ h1 {
 
 .gallery-navigation {
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -522,7 +522,7 @@ h1 {
 
 @media (width >= 1255px) {
   .header {
-    padding: 0px 90px 4px 90px;
+    padding: 0px 120px 4px 120px;
   }
 }
 
@@ -545,6 +545,6 @@ h1 {
   }
   
    .header {
-    padding: 0px 150px 4px 150px;
+    padding: 0px 208px 4px 208px;
   }
 }

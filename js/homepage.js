@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         .gallery-slide img {
            width: auto;
-           height: 30rem;
+           height: 34rem;
            margin: 0 auto;
         } 
     `;
