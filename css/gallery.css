@@ -113,7 +113,7 @@
 
 @media (min-width: 1055px) {
   .grid-container {
-    width: 84.6%;
+    width: 78.2%;
   }
   
  
@@ -121,7 +121,23 @@
 
 @media (min-width: 1400px) {
   .grid-container {
-    width: 79.6%;
+    width: 74.6%;
+  }
+  
+ 
+}
+
+@media (min-width: 1555px) {
+  .grid-container {
+    width: 76.4%;
+  }
+  
+ 
+}
+
+@media (min-width: 1620px) {
+  .grid-container {
+    width: 81.2%;
   }
   
  

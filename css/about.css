@@ -208,7 +208,7 @@ section.bottom-section {
 
 @media (min-width: 1055px) { 
 .about-page {
-    padding: 0 10rem 4rem 9rem;
+    padding: 0 8rem 4rem 7rem;
     
   }
 }
@@ -216,14 +216,28 @@ section.bottom-section {
 
 @media (min-width: 1200px) { 
 .about-page {
-    padding: 0 12rem 4rem 11rem;
+    padding: 0 9rem 4rem 7.5rem;
     
   }
 }
 
 @media (min-width: 1400px) { 
 .about-page {
-    padding: 0 16rem 4rem 15rem;
+    padding: 0 19rem 4rem 18rem;
+    
+  }
+}
+
+@media (min-width: 1555px) {
+  .about-page {
+    padding: 0 16rem 4rem 14.5rem;
+    
+  }
+}
+
+@media (min-width: 1620px) {
+  .about-page {
+    padding: 0 12rem 4rem 11rem;
     
   }
 }
