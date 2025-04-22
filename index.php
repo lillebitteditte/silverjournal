@@ -47,7 +47,7 @@ Template Name: homepage-silverjournal
                 <div class="gallery-dot" data-slide="4"></div>
                 <div class="gallery-dot" data-slide="5"></div>
                 <div class="gallery-dot" data-slide="6"></div>
-                <div class="gallery-dot" data-slide="7"></div>
+                
             </div>
         </div>
        

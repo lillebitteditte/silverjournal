@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .gallery-slide img {
-            width: 100%;
-            height: auto;
-            margin: 0 auto;
+           width: auto;
+           height: 30rem;
+           margin: 0 auto;
         } 
     `;
     document.head.appendChild(style);

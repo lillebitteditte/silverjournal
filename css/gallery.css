@@ -111,4 +111,8 @@
   .photo {
     margin-bottom: 0;
   }
+
+  .grid-container {
+    padding: 0rem 0rem 0rem 1rem;
+}
 }
