@@ -74,7 +74,7 @@ section.bottom-section {
 
 .about-image img:active, 
 .mathias-about-image img:active {
-  transform: scale(1.1);
+  transform: scale(0.8);
 }
 
 
