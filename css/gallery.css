@@ -1,24 +1,22 @@
-/* .header {
-  height: 6%;
-} */
 
 /* GRID */
 
 .grid-container {
   max-width: 1224px;
   width: 92%;
-  margin: 0rem 0rem 0rem 2.3rem;
+  margin: auto;
+  
 }
 
 .grid-gallery {
   display: flex;
-  gap: 3px;
+  gap: 20px;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 20px;
   flex: 1;
 }
 
@@ -53,7 +51,7 @@
 
 .modal {
   position: fixed;
-  z-index: 1000;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
@@ -98,21 +96,33 @@
 /* MEDIA QUERIES */
 
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .grid-gallery {
     display: flex; 
-    gap: 5px; /* Smaller gap for mobile */
+    gap: 10px; /* Smaller gap for mobile */
   }
   
   .column {
-    gap: 5px; /* Smaller gap between photos in column */
+    gap: 10px; /* Smaller gap between photos in column */
   }
   
   .photo {
     margin-bottom: 0;
   }
-
-  .grid-container {
-    padding: 0rem 0rem 0rem 1rem;
 }
+
+@media (min-width: 1055px) {
+  .grid-container {
+    width: 84.6%;
+  }
+  
+ 
+}
+
+@media (min-width: 1400px) {
+  .grid-container {
+    width: 79.6%;
+  }
+  
+ 
 }
