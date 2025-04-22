@@ -3,8 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const galleryElement = document.querySelector('.gallery');
   const galleryInner = document.querySelector('.gallery-inner');
-  const slides = document.querySelectorAll('.gallery-slide');
-  const dots = document.querySelectorAll('.gallery-dot');
+  let slides = document.querySelectorAll('.gallery-slide');
+  let dots = document.querySelectorAll('.gallery-dot');
   const swipeIndicator = document.querySelector('.swipe-indicator');
   let currentSlide = 0;
 
@@ -213,7 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const isMobile = window.innerWidth <= 768;
 
  // MOBILE IMAGE SWITCH
- if (isMobile) {
+ // MOBILE IMAGE SWITCH
+if (isMobile) {
   const galleryContainer = document.querySelector(".gallery");
   const slideContainer = galleryContainer.querySelectorAll(".gallery-slide");
   const dotsContainer = galleryContainer.querySelector(".gallery-navigation");
@@ -236,10 +237,19 @@ document.addEventListener('DOMContentLoaded', () => {
     dotsContainer.appendChild(dot);
   });
 
-  setupGallery();
+  // 🔁 Update global references
+  currentSlide = 0;
+  slides.length = 0;
+  dots.length = 0;
+
+  slides.push(...galleryContainer.querySelectorAll('.gallery-slide'));
+  dots.push(...galleryContainer.querySelectorAll('.gallery-dot'));
+
+  setupSlides();
 } else {
-  setupGallery(); 
+  setupSlides(); 
 }
+
 
 });
 
