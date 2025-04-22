@@ -149,6 +149,7 @@ galleryElement.addEventListener('touchend', () => {
     });
   }
 
+  const isMobile = window.innerWidth <= 768;
 
  // MOBILE IMAGE SWITCH
  if (isMobile) {
