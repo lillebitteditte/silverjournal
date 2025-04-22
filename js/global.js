@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const galleryElement = document.querySelector('.gallery');
-  const galleryInner = document.querySelector('.gallery-inner');
+  
   const slides = document.querySelectorAll('.gallery-slide');
   const dots = document.querySelectorAll('.gallery-dot');
   const swipeIndicator = document.querySelector('.swipe-indicator');
@@ -11,11 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Apply styles
   const style = document.createElement('style');
   style.textContent = `
-    .gallery-inner {
-      position: relative;
-      overflow: hidden;
-      height: auto;
-    }
+    
     .gallery-slide {
       position: absolute;
       width: 100%;
