@@ -54,9 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const style = document.createElement('style');
     style.textContent = `
         .gallery {
-            position: relative;
-            width: 85%;
-            overflow: hidden;
             margin: 0 auto;
         }
         
