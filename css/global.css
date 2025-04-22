@@ -179,7 +179,7 @@ h1 {
   position: relative;
   width: var(--content-width); 
  /*  touch-action: pan-y; */
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0 auto;
   animation: fadeInSmooth 1.5s ease-in-out forwards;
   animation-delay: 1.5s; 
