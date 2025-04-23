@@ -420,9 +420,7 @@ h1 {
     margin-top: 8px;
   }
   
-  .footer {
-    padding: 5px 0;
-  }
+
   
   .footer-info {
     flex-wrap: wrap;
@@ -501,6 +499,8 @@ h1 {
   
   .footer-info {
     gap: 10px;
+    margin-bottom: 1px;
+    margin-top: 1px;
   }
 }
 
