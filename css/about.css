@@ -7,8 +7,6 @@ html {
   background-color: var(--blackbackground);
   color: var(--white);
   font-family: "Oswald", sans-serif;
-  letter-spacing: 0.02em;
-  line-height: 1.6;
 }
 
 /* Mobile-first approach */

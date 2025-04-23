@@ -177,12 +177,14 @@ h1 {
 /* Gallery styling */
 .gallery {
   position: relative;
-  width: var(--content-width); 
- /*  touch-action: pan-y; */
+  width: var(--content-width);
   overflow: hidden;
   margin: 0 auto;
   animation: fadeInSmooth 1.5s ease-in-out forwards;
-  animation-delay: 1.5s; 
+  animation-delay: 1.5s;
+  touch-action: pan-y; /* Enable vertical scrolling, horizontal is managed by JS */
+  height: auto; /* Will be set dynamically by JS */
+  background: none;
 }
 
 .gallery-slide {
@@ -190,10 +192,14 @@ h1 {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform; /* Optimization for animation performance */
+  opacity: 1; /* Keep all slides visible for continuous effect */
+  pointer-events: none;
 }
 
 .gallery-slide img {
@@ -206,9 +212,8 @@ h1 {
 }
 
 .gallery-slide.active {
-  transform: translateX(0);
-  opacity: 1;
-  z-index: 2;
+   z-index: 2;
+  pointer-events: auto;
 }
 
 .gallery-slide.prev {
@@ -224,7 +229,7 @@ h1 {
 }
 
 .gallery-slide.no-transition {
-  transition: none;
+  transition: none !important;
 }
 
 .gallery-navigation {
@@ -275,6 +280,10 @@ h1 {
   pointer-events: none;
   transition: opacity 0.3s ease;
 
+}
+
+.gallery-mobile-images {
+  display: none;
 }
 
 /* Swipe indicator */
@@ -450,6 +459,33 @@ h1 {
     height: 2.2rem;
   }
   
+   .gallery {
+     /* Override any inline height on mobile */
+    max-height: 80vh; /* Prevent gallery from being too tall on mobile */
+  }
+  
+  .gallery-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  
+  .gallery-slide img {
+    max-width: 100%;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Make navigation dots more prominent on mobile */
+  .gallery-navigation {
+    bottom: 10px;
+  }
+  
   .gallery-dot {
     width: 12px;
     height: 12px;
@@ -462,16 +498,6 @@ h1 {
     outline-offset: 2px;
   }
   
-  /* Optimize rendering performance */
-  .gallery-slide {
-    will-change: transform, opacity;
-    backface-visibility: hidden;
-  }
-  
-  .gallery-navigation {
-    bottom: 5%;
-    padding: 10px 0;
-  }
   
   .footer-info {
     gap: 10px;
