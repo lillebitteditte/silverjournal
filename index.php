@@ -56,9 +56,11 @@ Template Name: homepage-silverjournal
        
         
         <div class="gallery-mobile-images" style="display: none;">
-    <img src="https://cdn.glitch.global/977d6639-74aa-4742-8855-39891de14bf9/AA035-2.JPG?v=1737119977573" alt="Mobile Image 1">
-    <img src="https://cdn.glitch.global/977d6639-74aa-4742-8855-39891de14bf9/Sofie_1.jpg?v=1737120083957" alt="Mobile Image 2">
-    <img src="https://cdn.glitch.me/ece17432-589a-42ec-b065-50b7c80bc0db/3a.jpg?v=1743495984435" alt="Mobile Image 3">
+    <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/img046-50-percent-bicubic-sharper-no-border.jpg" alt="Mobile Image 1">
+    <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/11-no-border-scaled.jpg" alt="Mobile Image 2">
+    <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/3a.jpg" alt="Mobile Image 3">
+    <img src="https://thesilverjournal.com/wp-content/uploads/2025/03/Frederiksberg-scaled.jpg" alt="Mobile Image 4">
+    <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/6a-scaled.jpg" alt="Mobile Image 5">
     <!-- Add more mobile images here -->
 </div>
 </div>

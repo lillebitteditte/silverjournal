@@ -411,8 +411,5 @@ document.addEventListener('DOMContentLoaded', () => {
         setGalleryHeight();
       });
       
-  
-     
-      
     }
   });
