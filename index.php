@@ -58,9 +58,10 @@ Template Name: homepage-silverjournal
         <div class="gallery-mobile-images" style="display: none;">
     <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/img046-50-percent-bicubic-sharper-no-border.jpg" alt="Mobile Image 1">
     <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/11-no-border-scaled.jpg" alt="Mobile Image 2">
-    <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/3a.jpg" alt="Mobile Image 3">
-    <img src="https://thesilverjournal.com/wp-content/uploads/2025/03/Frederiksberg-scaled.jpg" alt="Mobile Image 4">
-    <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/6a-scaled.jpg" alt="Mobile Image 5">
+    <img src="https://thesilverjournal.com/wp-content/uploads/2025/05/Wildflowers.jpg" alt="Mobile Image 3">
+    <img src="https://thesilverjournal.com/wp-content/uploads/2025/05/Elois-Gros-scaled.jpg" alt="Mobile Image 4">
+    <img src="https://thesilverjournal.com/wp-content/uploads/2025/05/Misty-coast.jpg" alt="Mobile Image 5">
+    <img src="https://thesilverjournal.com/wp-content/uploads/2025/04/Ditte-Marie-no-border-scaled.jpg" alt="Mobile Image 6">
     <!-- Add more mobile images here -->
 </div>
 </div>
